@@ -47,21 +47,30 @@ def build_reading_questions(articles, count, difficulty):
         return []
 
     generated = []
-    attempts = 0
-    while len(generated) < count and attempts < count * 30:
-        attempts += 1
-        article = random.choice(pool)
+    random.shuffle(pool)
+
+    # Use each article only once in a quiz to avoid repeated topics.
+    for article in pool:
+        if len(generated) >= count:
+            break
+
         facts = sentences(article["abstract"])
         if not facts:
             continue
+
         correct_fact = random.choice(facts)
         distractors = []
         for other in pool:
             if other["title"] != article["title"]:
                 distractors.extend(sentences(other["abstract"]))
-        distractors = list(dict.fromkeys(f for f in distractors if f != correct_fact))
+
+        # Keep answer choices distinct and avoid repeating the correct answer.
+        distractors = list(dict.fromkeys(
+            fact for fact in distractors if fact != correct_fact
+        ))
         if len(distractors) < 3:
             continue
+
         options = random.sample(distractors, 3) + [correct_fact]
         random.shuffle(options)
         generated.append({
@@ -72,6 +81,7 @@ def build_reading_questions(articles, count, difficulty):
             "answer": correct_fact,
             "explanation": f"This statement is taken from the Wikipedia summary for {article['title']}.",
         })
+
     return generated
 
 def generate_with_gemini(articles, topic, difficulty, count, api_key):
@@ -82,7 +92,14 @@ def generate_with_gemini(articles, topic, difficulty, count, api_key):
         a for a in articles
         if topic.lower() in a["title"].lower() or topic.lower() in a["abstract"].lower()
     ]
-    source_articles = matching if matching else random.sample(articles, min(8, len(articles)))
+    if not matching:
+        available_topics = ", ".join(a["title"] for a in articles[:12])
+        raise ValueError(
+            f"No matching article was found for '{topic}'. "
+            f"Try a topic related to these available articles: {available_topics}."
+        )
+
+    source_articles = matching[:12]
     context = "\n\n".join(
         f"Article: {a['title']}\nSummary: {a['abstract']}" for a in source_articles[:12]
     )
@@ -126,6 +143,9 @@ SOURCE SUMMARIES:
             isinstance(item.get("question"), str)
             and isinstance(options, list)
             and len(options) == 4
+            and all(isinstance(option, str) and option.strip() for option in options)
+            and len(set(options)) == 4
+            and isinstance(answer, str)
             and answer in options
         ):
             valid.append({
