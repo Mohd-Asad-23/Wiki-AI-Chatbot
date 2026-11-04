@@ -12,7 +12,7 @@ DATA_FILE = os.path.join(BASE_DIR, "quiz_data.json")
 
 st.title("🧠 WikiQuiz AI")
 st.subheader("Learn. Think. Challenge Yourself.")
-st.write("Explore Wikipedia knowledge through article-based quizzes.")
+st.write("Create quizzes from Wikipedia knowledge, with an optional Gemini AI mode.")
 
 @st.cache_data
 def load_articles():
@@ -53,20 +53,14 @@ def build_reading_questions(articles, count, difficulty):
         facts = sentences(article["abstract"])
         if not facts:
             continue
-
         correct_fact = random.choice(facts)
         distractors = []
         for other in pool:
-            if other["title"] == article["title"]:
-                continue
-            distractors.extend(sentences(other["abstract"]))
-
-        distractors = list(dict.fromkeys(
-            fact for fact in distractors if fact != correct_fact
-        ))
+            if other["title"] != article["title"]:
+                distractors.extend(sentences(other["abstract"]))
+        distractors = list(dict.fromkeys(f for f in distractors if f != correct_fact))
         if len(distractors) < 3:
             continue
-
         options = random.sample(distractors, 3) + [correct_fact]
         random.shuffle(options)
         generated.append({
@@ -78,6 +72,71 @@ def build_reading_questions(articles, count, difficulty):
             "explanation": f"This statement is taken from the Wikipedia summary for {article['title']}.",
         })
     return generated
+
+def generate_with_gemini(articles, topic, difficulty, count, api_key):
+    from google import genai
+    from google.genai import types
+
+    matching = [
+        a for a in articles
+        if topic.lower() in a["title"].lower() or topic.lower() in a["abstract"].lower()
+    ]
+    source_articles = matching if matching else random.sample(articles, min(8, len(articles)))
+    context = "\n\n".join(
+        f"Article: {a['title']}\nSummary: {a['abstract']}" for a in source_articles[:12]
+    )
+
+    prompt = f"""
+You are a careful educational quiz writer. Create exactly {count} multiple-choice questions.
+Topic requested: {topic}
+Difficulty: {difficulty}
+
+Use ONLY the source summaries below. Do not invent facts or use outside knowledge.
+Make questions that test understanding, concepts, cause/effect, comparisons, or applications.
+Avoid simple "which article is this?" questions.
+Each question must have exactly four concise options and one unambiguous correct answer.
+Return valid JSON only, as an array of objects with these keys:
+"question", "options", "answer", "explanation", "source_title".
+The "options" value must be an array of four strings. The "answer" must exactly match one option.
+If the source material is insufficient for the requested topic, create questions only from supported information.
+
+SOURCE SUMMARIES:
+{context}
+"""
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(
+        model="gemini-flash-latest",
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0.5,
+            max_output_tokens=5000,
+        ),
+    )
+    generated = json.loads(response.text)
+    if not isinstance(generated, list):
+        raise ValueError("Gemini returned an unexpected response format.")
+
+    valid = []
+    for item in generated:
+        options = item.get("options", [])
+        answer = item.get("answer")
+        if (
+            isinstance(item.get("question"), str)
+            and isinstance(options, list)
+            and len(options) == 4
+            and answer in options
+        ):
+            valid.append({
+                "question": item["question"],
+                "options": options,
+                "answer": answer,
+                "explanation": item.get("explanation", "Generated from the supplied Wikipedia summaries."),
+                "title": item.get("source_title", "Wikipedia source"),
+            })
+    if not valid:
+        raise ValueError("Gemini did not return valid questions. Try another topic.")
+    return valid
 
 try:
     articles = load_articles()
@@ -96,35 +155,50 @@ with st.sidebar:
     st.header("Quiz setup")
     mode = st.selectbox(
         "Question style",
-        ["Reading comprehension", "Identify the Wikipedia article"],
+        ["Gemini AI quiz", "Reading comprehension", "Identify the Wikipedia article"],
     )
-    difficulty = st.selectbox("Difficulty", ["All", "Easy", "Medium", "Hard"])
-    available = [
-        article for article in articles
-        if difficulty == "All" or article["difficulty"] == difficulty
-    ]
-    st.caption(f"{len(available)} articles available")
-    count = st.slider("Number of questions", 1, max(1, min(10, len(available))), min(5, max(1, len(available))))
-    start = st.button("Start new quiz", type="primary", use_container_width=True)
+    difficulty = st.selectbox("Difficulty", ["Easy", "Medium", "Hard", "All"])
+    topic = st.text_input("Topic for Gemini", placeholder="e.g. sports, geography, science")
+    count = st.slider("Number of questions", 1, 10, 5)
+    start = st.button("Generate quiz", type="primary", use_container_width=True)
 
 if start:
-    if mode == "Reading comprehension":
-        quiz = build_reading_questions(articles, count, difficulty)
-    else:
-        source = [
-            item for item in json.load(open(DATA_FILE, encoding="utf-8"))
-            if difficulty == "All" or item.get("difficulty", "").title() == difficulty
-        ]
-        quiz = random.sample(source, min(count, len(source))) if source else []
+    try:
+        if mode == "Gemini AI quiz":
+            api_key = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+            if not api_key:
+                st.error("Gemini API key is not configured yet. Add GEMINI_API_KEY in Streamlit app secrets.")
+                st.stop()
+            if not topic.strip():
+                st.error("Enter a topic for your Gemini quiz.")
+                st.stop()
+            with st.spinner("Gemini is creating your questions..."):
+                quiz = generate_with_gemini(articles, topic.strip(), difficulty, count, api_key)
+        elif mode == "Reading comprehension":
+            quiz = build_reading_questions(articles, count, difficulty)
+        else:
+            with open(DATA_FILE, encoding="utf-8") as file:
+                raw_data = json.load(file)
+            source = [
+                item for item in raw_data
+                if difficulty == "All" or item.get("difficulty", "").title() == difficulty
+            ]
+            quiz = random.sample(source, min(count, len(source))) if source else []
 
-    st.session_state.quiz = quiz
-    st.session_state.mode = mode
-    st.session_state.submitted = False
-    st.session_state.answers = {}
+        if not quiz:
+            st.error("Could not create a quiz from the available data. Try another difficulty.")
+            st.stop()
+        st.session_state.quiz = quiz
+        st.session_state.mode = mode
+        st.session_state.submitted = False
+        st.session_state.answers = {}
+    except Exception as error:
+        st.error(f"Quiz generation failed: {error}")
+        st.stop()
 
 quiz = st.session_state.get("quiz")
 if not quiz:
-    st.info("Choose a question style and difficulty, then click **Start new quiz**.")
+    st.info("Choose a question style and click **Generate quiz**.")
     st.stop()
 
 st.markdown(f"**Question style:** {st.session_state.mode}")
@@ -137,8 +211,11 @@ with st.form("quiz_form"):
             with st.expander("Read the Wikipedia passage", expanded=True):
                 st.write(question["passage"])
             st.write(question["question"])
+        elif st.session_state.mode == "Identify the Wikipedia article":
+            st.write(question.get("question", ""))
         else:
             st.write(question["question"])
+            st.caption(f"Source: {question.get('title', 'Wikipedia')}")
         answers[index] = st.radio(
             "Choose one answer",
             question["options"],
@@ -183,4 +260,4 @@ if st.session_state.get("submitted", False):
             st.session_state.pop(key, None)
         st.rerun()
 
-st.caption("Built from article summaries in the Wikimedia Structured Contents dataset.")
+st.caption("Wikipedia summaries provide the source material. Gemini AI generates the AI quiz questions.")
