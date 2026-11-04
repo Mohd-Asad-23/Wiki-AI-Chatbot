@@ -63,6 +63,11 @@ div[data-testid="stRadio"] label p { font-weight:500; }
  .stat-tile strong { font-size:1rem; }
  .stat-tile span { font-size:.66rem; }
 }
+/* Guided quiz interaction */
+.interaction-note { color:#78819e; font-size:.86rem; margin-top:-.35rem; }
+.question-surface { background:#fff; border:1px solid #e6e8f3; border-radius:22px; padding:1.35rem 1.5rem; box-shadow:0 12px 32px rgba(39,42,95,.06); margin:.75rem 0 1rem; }
+.progress-meta { display:flex; justify-content:space-between; color:#747d9b; font-size:.8rem; font-weight:700; margin:.3rem 0 .45rem; }
+.answer-hint { color:#7b83a0; font-size:.8rem; margin:.45rem 0; }
 footer {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
@@ -341,6 +346,10 @@ if generate:
         st.session_state.mode = mode
         st.session_state.submitted = False
         st.session_state.answers = {}
+        st.session_state.question_index = 0
+        for widget_key in list(st.session_state.keys()):
+            if str(widget_key).startswith("interactive_answer_"):
+                del st.session_state[widget_key]
         st.session_state.topic = topic.strip() if mode == "Gemini AI quiz" else ""
         st.rerun()
 
@@ -363,38 +372,78 @@ if not quiz:
     st.stop()
 
 st.markdown(
-    f'<div class="quiz-heading"><div class="small-label" style="color:#d9d7ff;">YOUR CHALLENGE</div><h3>{st.session_state.mode}</h3><p>{len(quiz)} questions &nbsp;·&nbsp; {st.session_state.get("topic") or "Wikipedia knowledge"} &nbsp;·&nbsp; Take your time and do your best.</p></div>',
+    f'<div class="quiz-heading"><div class="small-label" style="color:#d9d7ff;">YOUR CHALLENGE</div><h3>{st.session_state.mode}</h3><p>{len(quiz)} questions &nbsp;·&nbsp; {st.session_state.get("topic") or "Wikipedia knowledge"} &nbsp;·&nbsp; One question at a time</p></div>',
     unsafe_allow_html=True,
 )
 
 if not st.session_state.get("submitted", False):
-    with st.form("quiz_form"):
-        answers = {}
-        for index, question in enumerate(quiz):
-            st.markdown(f'<div class="question-card"><div class="small-label">✦ QUESTION {index + 1:02d}</div><div style="color:#858ba5;font-size:.76rem;font-weight:700;">{index + 1} / {len(quiz)}</div></div>', unsafe_allow_html=True)
-            if st.session_state.mode == "Reading comprehension":
-                with st.expander(f"Read passage: {question['title']}", expanded=(index == 0)):
-                    st.write(question["passage"])
-            elif st.session_state.mode == "Identify the Wikipedia article":
-                st.write(question.get("question", ""))
-            else:
-                st.write(question["question"])
-                st.caption(f"Source: {question.get('title', 'Wikipedia')}")
-            answers[index] = st.radio(
-                "Choose your answer",
-                question["options"],
-                index=None,
-                key=f"answer_{index}",
-                label_visibility="collapsed",
-            )
-            st.divider()
-        submitted = st.form_submit_button("Submit answers", type="primary", use_container_width=True)
+    current_index = st.session_state.get("question_index", 0)
+    current_index = max(0, min(current_index, len(quiz) - 1))
+    current_question = quiz[current_index]
+    saved_answers = st.session_state.get("answers", {})
+    progress = (current_index + 1) / len(quiz)
 
-    if submitted:
-        st.session_state.submitted = True
-        st.session_state.answers = answers
+    st.markdown(
+        f'<div class="progress-meta"><span>YOUR PROGRESS</span><span>{current_index + 1} OF {len(quiz)}</span></div>',
+        unsafe_allow_html=True,
+    )
+    st.progress(progress)
+    st.markdown('<div class="interaction-note">Choose one answer, then continue. You can go back and change previous answers.</div>', unsafe_allow_html=True)
+
+    with st.form(f"interactive_quiz_form_{current_index}"):
+        st.markdown(
+            f'<div class="question-surface"><div class="small-label">QUESTION {current_index + 1:02d}</div></div>',
+            unsafe_allow_html=True,
+        )
+        if st.session_state.mode == "Reading comprehension":
+            with st.expander(f"Read passage: {current_question['title']}", expanded=True):
+                st.write(current_question["passage"])
+        if st.session_state.mode == "Identify the Wikipedia article":
+            st.markdown("#### Identify this Wikipedia article")
+            st.write(current_question.get("question", ""))
+        else:
+            st.markdown(f"#### {current_question['question']}")
+            if st.session_state.mode == "Gemini AI quiz":
+                st.caption(f"Source: {current_question.get('title', 'Wikipedia')}")
+
+        options = current_question["options"]
+        previous_answer = saved_answers.get(current_index)
+        default_index = options.index(previous_answer) if previous_answer in options else None
+        selected_answer = st.radio(
+            "Select your answer",
+            options,
+            index=default_index,
+            key=f"interactive_answer_{current_index}",
+        )
+        st.markdown('<div class="answer-hint">Your selection is saved when you continue.</div>', unsafe_allow_html=True)
+        previous_col, next_col = st.columns([1, 2])
+        with previous_col:
+            previous_clicked = st.form_submit_button(
+                "← Previous",
+                disabled=(current_index == 0),
+                use_container_width=True,
+            )
+        with next_col:
+            next_label = "Finish quiz ✓" if current_index == len(quiz) - 1 else "Save & continue →"
+            next_clicked = st.form_submit_button(
+                next_label,
+                type="primary",
+                use_container_width=True,
+            )
+
+    if previous_clicked or next_clicked:
+        saved_answers[current_index] = selected_answer
+        st.session_state.answers = saved_answers
+        if previous_clicked:
+            st.session_state.question_index = max(0, current_index - 1)
+        elif current_index == len(quiz) - 1:
+            st.session_state.submitted = True
+        else:
+            st.session_state.question_index = current_index + 1
         st.rerun()
 
+    answered_count = sum(1 for i in range(len(quiz)) if saved_answers.get(i))
+    st.caption(f"{answered_count} of {len(quiz)} answers saved.")
 else:
     saved = st.session_state.answers
     score = sum(saved.get(i) == question["answer"] for i, question in enumerate(quiz))
@@ -430,8 +479,11 @@ else:
                 st.info(question["explanation"])
 
     if st.button("↻ Create another quiz", type="primary", use_container_width=True):
-        for key in ("quiz", "mode", "submitted", "answers", "topic"):
+        for key in ("quiz", "mode", "submitted", "answers", "topic", "question_index"):
             st.session_state.pop(key, None)
+        for widget_key in list(st.session_state.keys()):
+            if str(widget_key).startswith("interactive_answer_"):
+                del st.session_state[widget_key]
         st.rerun()
 
 st.caption("Source material: Wikipedia article summaries · AI question generation: Gemini")
