@@ -825,452 +825,452 @@
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nGenerative artificial intelligence is a type of artificial intelligence that creates new content such as text, images, audio, video, or code. It learns patterns from training data and uses them to produce new outputs in response to prompts.",
+    "question": "Which Wikipedia topic is described below?\nGenerative artificial intelligence (generative AI) refers to AI systems that produce new content, including text, images, audio, video, and computer code. These systems learn statistical patterns from training data and generate outputs in response to prompts. Large language models and image-generation models are examples. Their outputs can be useful but may also contain errors or fabricated details.",
     "options": [
       "Generative artificial intelligence",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Transformer (deep learning architecture)",
+      "Supervised learning",
+      "Unsupervised learning"
     ],
     "answer": "Generative artificial intelligence",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe transformer is a deep learning architecture introduced for sequence transduction tasks. It relies on attention mechanisms rather than recurrence or convolution as its central way to process relationships between tokens.",
+    "question": "Which Wikipedia topic is described below?\nThe transformer is a neural-network architecture introduced in the 2017 paper Attention Is All You Need. Its central mechanism, self-attention, allows a model to weigh relationships between different tokens in a sequence. Unlike recurrent neural networks, transformers can process many sequence positions in parallel during training. The architecture is widely used in language models and has also been applied to images, audio, and other data.",
     "options": [
       "Transformer (deep learning architecture)",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Supervised learning",
+      "Unsupervised learning"
     ],
     "answer": "Transformer (deep learning architecture)",
     "difficulty": "Hard"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nSupervised learning is a machine learning approach in which a model learns from labelled examples. Each training example includes an input and a desired output, and the model learns to predict outputs for new inputs.",
+    "question": "Which Wikipedia topic is described below?\nSupervised learning trains a model using labelled examples, where each input is paired with a known target output. The model learns a mapping that can predict labels or numerical values for new inputs. Classification and regression are two common supervised-learning tasks. A model is usually evaluated on data that was not used for training.",
     "options": [
       "Supervised learning",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Transformer (deep learning architecture)",
+      "Unsupervised learning"
     ],
     "answer": "Supervised learning",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nUnsupervised learning is a machine learning approach that finds patterns in data without labelled target outputs. Common tasks include clustering, dimensionality reduction, and discovering structure in datasets.",
+    "question": "Which Wikipedia topic is described below?\nUnsupervised learning looks for structure in data that has no supplied target labels. Clustering groups similar examples, while dimensionality-reduction methods represent data using fewer variables. These methods can help explore datasets, identify patterns, and detect unusual observations. The discovered groups still need interpretation and validation.",
     "options": [
       "Unsupervised learning",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Transformer (deep learning architecture)",
+      "Supervised learning"
     ],
     "answer": "Unsupervised learning",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nReinforcement learning is a machine learning paradigm in which an agent learns to make decisions by interacting with an environment. It receives rewards or penalties and seeks to maximize cumulative reward.",
+    "question": "Which Wikipedia topic is described below?\nReinforcement learning studies how an agent can learn to make decisions by interacting with an environment. At each step, the agent observes a state, chooses an action, and receives a reward or penalty. It aims to learn a policy that maximizes long-term cumulative reward. The approach is used in areas such as robotics, games, and resource control.",
     "options": [
       "Reinforcement learning",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Transformer (deep learning architecture)",
+      "Supervised learning"
     ],
     "answer": "Reinforcement learning",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nTraining data is the information used to fit the parameters of a machine learning model. Its quality, quantity, and representativeness can strongly affect how well the model performs on new examples.",
+    "question": "Which Wikipedia topic is described below?\nTraining data is the collection of examples used to fit a machine-learning model. In supervised learning, examples usually contain inputs and corresponding labels; in other settings, data may be unlabelled. Missing, biased, duplicated, or unrepresentative examples can harm model performance. Separate validation and test data help assess how well a model generalizes.",
     "options": [
       "Training data",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Transformer (deep learning architecture)",
+      "Supervised learning"
     ],
     "answer": "Training data",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nOverfitting occurs when a machine learning model learns the training data too closely, including noise or accidental patterns. Such a model may perform well on training examples but poorly on unseen data.",
+    "question": "Which Wikipedia topic is described below?\nOverfitting occurs when a model learns details and noise in its training examples instead of patterns that generalize. It often produces very strong training performance but weaker results on unseen data. Techniques such as regularization, cross-validation, early stopping, and collecting more representative data can help reduce overfitting.",
     "options": [
       "Overfitting",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Generative artificial intelligence",
+      "Transformer (deep learning architecture)",
+      "Supervised learning"
     ],
     "answer": "Overfitting",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nComputer programming is the process of designing and writing instructions that a computer can execute. Programs are commonly written in programming languages and translated or interpreted for execution.",
+    "question": "Which Wikipedia topic is described below?\nComputer programming is the process of creating instructions that a computer can execute to perform tasks. A program may be written in a high-level language and then interpreted or compiled into instructions a machine can run. Programming involves problem analysis, algorithm design, implementation, testing, and maintenance.",
     "options": [
       "Computer programming",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Git",
+      "GitHub",
+      "HTML"
     ],
     "answer": "Computer programming",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nGit is a distributed version control system used to track changes in files and coordinate work among developers. It records project history through commits and supports branches for parallel development.",
+    "question": "Which Wikipedia topic is described below?\nGit is a distributed version-control system created by Linus Torvalds. It records changes to files as commits and allows developers to work on separate branches. Developers can merge branches to combine work and use tools such as diff and log to inspect project history. Git can be used locally without a hosting service.",
     "options": [
       "Git",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "GitHub",
+      "HTML"
     ],
     "answer": "Git",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nGitHub is an online platform for hosting Git repositories and collaborating on software projects. It provides tools such as pull requests, issues, code review, and project automation.",
+    "question": "Which Wikipedia topic is described below?\nGitHub is a web-based platform for hosting Git repositories and collaborating on software projects. It adds features such as pull requests, code review, issue tracking, discussions, and automated workflows. A pull request proposes changes for review before they are merged into a project branch. Git is the version-control system; GitHub is one service built around it.",
     "options": [
       "GitHub",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "HTML"
     ],
     "answer": "GitHub",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nHTML, or HyperText Markup Language, is the standard markup language used to structure content on web pages. Elements are represented by tags and can describe headings, paragraphs, links, images, and forms.",
+    "question": "Which Wikipedia topic is described below?\nHTML (HyperText Markup Language) is the standard markup language for structuring web content. Elements are represented by tags and can define headings, paragraphs, links, images, tables, and forms. HTML describes the meaning and structure of content; CSS is generally used for presentation and JavaScript for interactive behaviour.",
     "options": [
       "HTML",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "HTML",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nCSS, or Cascading Style Sheets, is a style sheet language used to describe the presentation of documents written in markup languages such as HTML. It controls layout, colours, typography, and responsive design.",
+    "question": "Which Wikipedia topic is described below?\nCSS (Cascading Style Sheets) describes how HTML and other markup documents are presented. It controls properties such as colours, fonts, spacing, borders, and layout. The cascade determines which declarations apply when rules conflict. Media queries and flexible layout systems help pages adapt to different screen sizes.",
     "options": [
       "CSS",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "CSS",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nJavaScript is a programming language commonly used to create interactive behaviour on web pages. It also runs outside browsers in environments such as Node.js.",
+    "question": "Which Wikipedia topic is described below?\nJavaScript is a high-level programming language widely used to add behaviour to web pages. In browsers it can respond to events, update page content, and communicate with web services. JavaScript also runs outside browsers in environments such as Node.js. It is distinct from Java despite the similarity in their names.",
     "options": [
       "JavaScript",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "JavaScript",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nSQL, or Structured Query Language, is used to define, query, and manipulate data in relational database systems. Common operations include SELECT, INSERT, UPDATE, and DELETE.",
+    "question": "Which Wikipedia topic is described below?\nSQL (Structured Query Language) is used to work with data in relational database systems. SELECT retrieves data, INSERT adds rows, UPDATE changes existing rows, and DELETE removes rows. SQL also supports table definitions, constraints, joins, grouping, and transactions. Different database products implement SQL with some variations.",
     "options": [
       "SQL",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "SQL",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nLinux is a family of open-source Unix-like operating systems based on the Linux kernel. It is widely used in servers, embedded systems, supercomputers, and personal computing.",
+    "question": "Which Wikipedia topic is described below?\nLinux is an open-source, Unix-like operating-system kernel originally created by Linus Torvalds in 1991. Complete operating-system distributions combine the kernel with system tools, libraries, and applications. Linux distributions are used on servers, personal computers, embedded devices, and supercomputers. Examples include Debian, Ubuntu, Fedora, and Arch Linux.",
     "options": [
       "Linux",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "Linux",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nCloud computing provides on-demand access over a network to computing resources such as servers, storage, databases, and software. Resources can often be scaled up or down as needed.",
+    "question": "Which Wikipedia topic is described below?\nCloud computing provides computing resources such as servers, storage, databases, and software over a network, commonly the Internet. Service models include infrastructure as a service, platform as a service, and software as a service. Cloud resources can be provisioned on demand and scaled as workloads change. Users should still consider security, cost, availability, and data location.",
     "options": [
       "Cloud computing",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Data science",
+      "Internet of Things",
+      "Robotics"
     ],
     "answer": "Cloud computing",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nAn application programming interface, or API, defines how software components communicate. APIs specify available operations, inputs, outputs, and rules for exchanging information between systems.",
+    "question": "Which Wikipedia topic is described below?\nAn application programming interface (API) is a defined way for software components to communicate. It describes operations, inputs, outputs, and rules that a program can use when interacting with another service or library. Web APIs often exchange data using HTTP and formats such as JSON. An API allows systems to integrate without exposing all of their internal implementation.",
     "options": [
       "Application programming interface",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Computer programming",
+      "Git",
+      "GitHub"
     ],
     "answer": "Application programming interface",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nData science combines statistics, computing, and domain knowledge to extract insights from data. Its workflow can include collecting, cleaning, exploring, modelling, and communicating results.",
+    "question": "Which Wikipedia topic is described below?\nData science combines statistics, computing, and subject-area knowledge to extract useful information from data. Typical work includes collecting data, cleaning it, exploring patterns, building models, and communicating findings. Data visualisation helps people understand results, while careful evaluation helps avoid misleading conclusions.",
     "options": [
       "Data science",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Cloud computing",
+      "Internet of Things",
+      "Robotics"
     ],
     "answer": "Data science",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Internet of Things is a network of physical objects equipped with sensors, software, and connectivity that allow them to collect and exchange data. Examples include smart appliances and industrial sensors.",
+    "question": "Which Wikipedia topic is described below?\nThe Internet of Things (IoT) describes physical objects equipped with sensors, software, and network connectivity that allow them to collect or exchange data. Examples include smart thermostats, wearable devices, and industrial monitoring equipment. IoT systems can support automation and remote monitoring, but they also raise security, privacy, and reliability concerns.",
     "options": [
       "Internet of Things",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Cloud computing",
+      "Data science",
+      "Robotics"
     ],
     "answer": "Internet of Things",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nRobotics is an interdisciplinary field involving the design, construction, operation, and use of robots. It combines areas such as mechanical engineering, electronics, control theory, and computer science.",
+    "question": "Which Wikipedia topic is described below?\nRobotics is an interdisciplinary field concerned with designing, building, programming, and operating robots. It draws on mechanical engineering, electronics, control systems, and computer science. Robots may sense their surroundings, plan actions, and manipulate objects. Applications include manufacturing, medicine, exploration, agriculture, and logistics.",
     "options": [
       "Robotics",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Cloud computing",
+      "Data science",
+      "Internet of Things"
     ],
     "answer": "Robotics",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nNanotechnology involves understanding and manipulating matter at the nanoscale, commonly around 1 to 100 nanometres. Materials at this scale can show properties different from those of the same materials in bulk form.",
+    "question": "Which Wikipedia topic is described below?\nNanotechnology involves understanding and manipulating materials and devices at the nanoscale, commonly around 1 to 100 nanometres. At this scale, material behaviour can differ from its bulk properties because of surface and quantum effects. Research areas include nanomedicine, electronics, coatings, and energy technologies. Potential applications require careful assessment of environmental and health effects.",
     "options": [
       "Nanotechnology",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Cloud computing",
+      "Data science",
+      "Internet of Things"
     ],
     "answer": "Nanotechnology",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nEvolution is the change in heritable characteristics of biological populations over successive generations. Mechanisms include natural selection, mutation, genetic drift, and gene flow.",
+    "question": "Which Wikipedia topic is described below?\nBiological evolution is the change in heritable characteristics of populations across generations. Mutation introduces genetic variation, while natural selection can make some inherited traits more common when they improve reproductive success in a particular environment. Genetic drift and gene flow also change populations. Evolution explains both the diversity and the shared ancestry of living organisms.",
     "options": [
       "Evolution",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Ecosystem",
+      "Solar energy",
+      "Ozone layer"
     ],
     "answer": "Evolution",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nAn ecosystem consists of a community of living organisms interacting with one another and with the non-living components of their environment. Energy flows through food chains and nutrients are recycled.",
+    "question": "Which Wikipedia topic is described below?\nAn ecosystem includes a community of organisms and the physical environment with which they interact. Producers capture energy, consumers obtain it by eating other organisms, and decomposers break down organic matter. Energy flows through food webs while nutrients are recycled. Changes to one component can affect many other parts of the ecosystem.",
     "options": [
       "Ecosystem",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Evolution",
+      "Solar energy",
+      "Ozone layer"
     ],
     "answer": "Ecosystem",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nSolar energy is radiant light and heat from the Sun that can be harnessed using technologies such as photovoltaic cells and solar thermal collectors. It is a renewable energy source.",
+    "question": "Which Wikipedia topic is described below?\nSolar energy is energy from sunlight that can be converted into useful heat or electricity. Photovoltaic cells convert light directly into electrical energy, while solar-thermal systems collect heat. Solar power is renewable, but its output varies with daylight, weather, and location. Storage and grid connections can help balance changes in generation.",
     "options": [
       "Solar energy",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Evolution",
+      "Ecosystem",
+      "Ozone layer"
     ],
     "answer": "Solar energy",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe ozone layer is a region of Earth's stratosphere with a relatively high concentration of ozone. It absorbs much of the Sun's harmful ultraviolet radiation.",
+    "question": "Which Wikipedia topic is described below?\nThe ozone layer is a region of the stratosphere containing relatively high concentrations of ozone. It absorbs much of the Sun's harmful ultraviolet-B radiation, helping protect life at Earth's surface. Certain human-made chemicals, especially chlorofluorocarbons, have contributed to ozone depletion. The Montreal Protocol established international controls on many ozone-depleting substances.",
     "options": [
       "Ozone layer",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Evolution",
+      "Ecosystem",
+      "Solar energy"
     ],
     "answer": "Ozone layer",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nPlate tectonics is the scientific theory that Earth's outer shell is divided into large plates that move over the mantle. Their interactions help explain earthquakes, volcanoes, and mountain formation.",
+    "question": "Which Wikipedia topic is described below?\nPlate tectonics describes the movement of large pieces of Earth's lithosphere over the underlying mantle. Plates interact at divergent, convergent, and transform boundaries. These interactions help explain seafloor spreading, mountain building, volcanic activity, and many earthquakes. The theory unifies observations from geology, geophysics, and the distribution of fossils.",
     "options": [
       "Plate tectonics",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Evolution",
+      "Ecosystem",
+      "Solar energy"
     ],
     "answer": "Plate tectonics",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Ganges is a transboundary river of Asia that flows through India and Bangladesh. It is culturally and economically important and forms part of one of the world's largest river delta systems.",
+    "question": "Which Wikipedia topic is described below?\nThe Ganges is a major river of South Asia that flows through India and Bangladesh before reaching the Bay of Bengal through a large delta system. Its basin supports dense populations, agriculture, transport, and important cultural traditions. Major tributaries contribute to its flow. Pollution, water use, and flood management are significant issues in the basin.",
     "options": [
       "Ganges",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Andes",
+      "Sundarbans",
+      "Artificial intelligence"
     ],
     "answer": "Ganges",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Andes are the longest continental mountain range in the world, extending along the western edge of South America. The range passes through several countries and includes many high peaks and volcanoes.",
+    "question": "Which Wikipedia topic is described below?\nThe Andes form a long mountain system along the western edge of South America, crossing countries including Venezuela, Colombia, Ecuador, Peru, Bolivia, Chile, and Argentina. The range formed through tectonic processes associated with the subduction of oceanic crust beneath South America. It contains high plateaus, volcanoes, glaciers, and diverse ecosystems.",
     "options": [
       "Andes",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Ganges",
+      "Sundarbans",
+      "Artificial intelligence"
     ],
     "answer": "Andes",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Sundarbans are a mangrove forest region in the delta of the Ganges, Brahmaputra, and Meghna rivers. The region spans India and Bangladesh and provides habitat for the Bengal tiger and many other species.",
+    "question": "Which Wikipedia topic is described below?\nThe Sundarbans are a vast mangrove region in the delta formed by the Ganges, Brahmaputra, and Meghna river systems in India and Bangladesh. Its tidal waterways and mangrove forests support diverse wildlife, including the Bengal tiger. The region helps buffer coastal communities from storms, but faces pressures from sea-level rise, erosion, and human activity.",
     "options": [
       "Sundarbans",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Ganges",
+      "Andes",
+      "Artificial intelligence"
     ],
     "answer": "Sundarbans",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe United States Declaration of Independence was adopted on 4 July 1776. It announced that the thirteen American colonies regarded themselves as independent states, separate from British rule.",
+    "question": "Which Wikipedia topic is described below?\nThe United States Declaration of Independence was adopted by the Second Continental Congress on 4 July 1776. It announced that the thirteen colonies regarded themselves as independent states no longer under British rule. The document articulated ideas about natural rights and the legitimacy of government. Thomas Jefferson was its principal drafter, working with a committee.",
     "options": [
       "United States Declaration of Independence",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "World War II",
+      "Ashoka",
+      "Qutub Minar"
     ],
     "answer": "United States Declaration of Independence",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nWorld War II was a global conflict that lasted from 1939 to 1945. It involved many of the world's countries and ended after the defeat of the Axis powers.",
+    "question": "Which Wikipedia topic is described below?\nWorld War II was a global conflict fought from 1939 to 1945, involving the Allied and Axis powers. It began in Europe after Nazi Germany invaded Poland and expanded across Europe, Africa, and Asia-Pacific. The war included the Holocaust, large-scale civilian suffering, and the use of atomic weapons against Hiroshima and Nagasaki. It ended with the surrender of Germany in May 1945 and Japan in September 1945.",
     "options": [
       "World War II",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "United States Declaration of Independence",
+      "Ashoka",
+      "Qutub Minar"
     ],
     "answer": "World War II",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nAshoka was an emperor of the Maurya dynasty who ruled much of the Indian subcontinent in the third century BCE. After the Kalinga War, he promoted policies associated with dhamma and supported the spread of Buddhism.",
+    "question": "Which Wikipedia topic is described below?\nAshoka was a ruler of the Maurya Empire in the third century BCE and grandson of Chandragupta Maurya. After the Kalinga War, he expressed remorse over the suffering caused by conquest and promoted a policy known as dhamma. His inscriptions on pillars and rocks provide important evidence about his rule. He supported Buddhist institutions, though dhamma also expressed broader ethical principles.",
     "options": [
       "Ashoka",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "United States Declaration of Independence",
+      "World War II",
+      "Qutub Minar"
     ],
     "answer": "Ashoka",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nQutub Minar is a minaret and UNESCO World Heritage Site in Delhi, India. Construction was begun by Qutb al-Din Aibak in the late twelfth century and continued by later rulers.",
+    "question": "Which Wikipedia topic is described below?\nQutub Minar is a historic minaret in the Qutb complex in Delhi, India, and is part of a UNESCO World Heritage Site. Construction began under Qutb al-Din Aibak around the end of the twelfth century and was continued by later rulers. The tower is built primarily of red sandstone and marble and is decorated with inscriptions and architectural bands.",
     "options": [
       "Qutub Minar",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "United States Declaration of Independence",
+      "World War II",
+      "Ashoka"
     ],
     "answer": "Qutub Minar",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Ajanta Caves are a group of Buddhist cave monuments in Maharashtra, India. They are known for ancient paintings and sculptures illustrating Buddhist religious art and stories.",
+    "question": "Which Wikipedia topic is described below?\nThe Ajanta Caves are a group of Buddhist rock-cut monuments in Maharashtra, India. The caves include monasteries and worship halls carved into a horseshoe-shaped rock face. They are especially famous for murals and sculptures depicting Buddhist stories, figures, and scenes of courtly life. Their art provides evidence of religious and cultural history in ancient India.",
     "options": [
       "Ajanta Caves",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "United States Declaration of Independence",
+      "World War II",
+      "Ashoka"
     ],
     "answer": "Ajanta Caves",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nField hockey is a team sport in which players use curved sticks to hit a ball into the opposing team's goal. It is played on a field by two teams, each typically consisting of eleven players.",
+    "question": "Which Wikipedia topic is described below?\nField hockey is a team sport played by two teams, usually with eleven players on each side. Players use curved sticks to move a hard ball and attempt to score by sending it into the opposing goal from within the shooting circle. The sport is governed internationally by the International Hockey Federation. It is distinct from ice hockey, which is played on ice with skates.",
     "options": [
       "Hockey",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Tennis",
+      "Kabaddi",
+      "Formula One"
     ],
     "answer": "Hockey",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nTennis is a racket sport played individually against one opponent or between two teams of two players. Players hit a ball over a net into the opponent's court, aiming to make it impossible to return legally.",
+    "question": "Which Wikipedia topic is described below?\nTennis is a racket sport played as singles or doubles on a rectangular court divided by a net. Players strike a ball so it lands inside the opponent's court and cannot be returned legally. The four Grand Slam tournaments are the Australian Open, French Open, Wimbledon, and US Open. Scoring uses points, games, and sets.",
     "options": [
       "Tennis",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Hockey",
+      "Kabaddi",
+      "Formula One"
     ],
     "answer": "Tennis",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nKabaddi is a contact team sport originating in South Asia. A raider enters the opposing team's half to tag defenders and return to their own half without being tackled.",
+    "question": "Which Wikipedia topic is described below?\nKabaddi is a contact team sport popular in South Asia. In a standard format, a raider enters the opposing team's half, attempts to tag defenders, and tries to return to their own half without being tackled. Teams alternate raids and defend their half. Modern professional competitions use defined courts, timed matches, and scoring rules.",
     "options": [
       "Kabaddi",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Hockey",
+      "Tennis",
+      "Formula One"
     ],
     "answer": "Kabaddi",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nFormula One is the highest class of international single-seat auto racing sanctioned by the Fédération Internationale de l'Automobile. A season consists of a series of races known as Grands Prix.",
+    "question": "Which Wikipedia topic is described below?\nFormula One is an international championship series for open-wheel, single-seat racing cars governed by the Fédération Internationale de l'Automobile. A season consists of a series of Grands Prix held at circuits in different countries. Teams design and operate cars under technical and sporting regulations. Drivers and constructors compete for separate championship titles.",
     "options": [
       "Formula One",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Hockey",
+      "Tennis",
+      "Kabaddi"
     ],
     "answer": "Formula One",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe Badminton World Federation is the international governing body for the sport of badminton. It oversees international competitions and works with national associations to develop the sport.",
+    "question": "Which Wikipedia topic is described below?\nThe Badminton World Federation (BWF) is the international governing body for badminton, founded in 1934 as the International Badminton Federation. It oversees major international competitions, maintains the sport's rules, and works with national member associations. The BWF organizes events including the World Championships and the Thomas and Uber Cups.",
     "options": [
       "Badminton World Federation",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "Hockey",
+      "Tennis",
+      "Kabaddi"
     ],
     "answer": "Badminton World Federation",
     "difficulty": "Medium"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nThe World Health Organization is a specialized agency of the United Nations responsible for international public health. It coordinates health work, provides guidance, and supports responses to health emergencies.",
+    "question": "Which Wikipedia topic is described below?\nThe World Health Organization (WHO) is a specialized agency of the United Nations established in 1948. It works on international public health, supports countries, develops health guidance, and coordinates responses to health emergencies. Its work includes disease surveillance, vaccination, health systems, and global health standards.",
     "options": [
       "World Health Organization",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "United Nations Educational, Scientific and Cultural Organization",
+      "Artificial intelligence",
+      "Computer programming"
     ],
     "answer": "World Health Organization",
     "difficulty": "Easy"
   },
   {
-    "question": "Which Wikipedia topic is described below?\nUNESCO is a specialized agency of the United Nations that promotes international cooperation in education, science, culture, and communication. It is widely known for its World Heritage programme.",
+    "question": "Which Wikipedia topic is described below?\nThe United Nations Educational, Scientific and Cultural Organization (UNESCO) is a specialized agency of the United Nations founded in 1945. It promotes cooperation in education, science, culture, and communication. Its World Heritage programme identifies cultural and natural sites considered to have outstanding universal value. UNESCO also supports education, scientific collaboration, and protection of cultural heritage.",
     "options": [
       "United Nations Educational, Scientific and Cultural Organization",
-      "General knowledge",
-      "World history",
-      "Computer science"
+      "World Health Organization",
+      "Artificial intelligence",
+      "Computer programming"
     ],
     "answer": "United Nations Educational, Scientific and Cultural Organization",
     "difficulty": "Medium"
