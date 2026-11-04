@@ -2,6 +2,7 @@ import json
 import os
 import random
 import re
+import time
 
 import streamlit as st
 
@@ -172,8 +173,40 @@ if start:
             if not topic.strip():
                 st.error("Enter a topic for your Gemini quiz.")
                 st.stop()
+            transient_error = None
             with st.spinner("Gemini is creating your questions..."):
-                quiz = generate_with_gemini(articles, topic.strip(), difficulty, count, api_key)
+                for attempt in range(3):
+                    try:
+                        quiz = generate_with_gemini(
+                            articles, topic.strip(), difficulty, count, api_key
+                        )
+                        transient_error = None
+                        break
+                    except Exception as error:
+                        error_text = str(error).lower()
+                        is_temporary = any(
+                            marker in error_text
+                            for marker in ("503", "unavailable", "429", "resource_exhausted", "500", "504", "deadline")
+                        )
+                        if not is_temporary:
+                            raise
+                        transient_error = error
+                        if attempt < 2:
+                            time.sleep(2 ** (attempt + 1))
+
+            if transient_error is not None:
+                quiz = build_reading_questions(articles, count, "All")
+                if quiz:
+                    mode = "Reading comprehension"
+                    st.warning(
+                        "Gemini is temporarily busy after 3 attempts. "
+                        "We've switched to the built-in reading-comprehension quiz so you can continue."
+                    )
+                else:
+                    raise RuntimeError(
+                        "Gemini is temporarily unavailable, and the built-in fallback quiz "
+                        "could not be created. Please try again in a few minutes."
+                    ) from transient_error
         elif mode == "Reading comprehension":
             quiz = build_reading_questions(articles, count, difficulty)
         else:
