@@ -41,6 +41,28 @@ div[data-testid="stRadio"] label { background:#fff; border:1px solid #e7e9f2; bo
 div[data-testid="stRadio"] label:hover { border-color:#aaa4ef; }
 .stAlert { border-radius:14px; }
 hr { border-color:#eceef6; }
+/* Extra polish: information cards, quiz progress and small-screen layout */
+.stat-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:.2rem 0 1.25rem; }
+.stat-tile { background:rgba(255,255,255,.88); border:1px solid #e8eaf5; border-radius:16px; padding:.9rem 1rem; box-shadow:0 5px 18px rgba(34,43,92,.035); }
+.stat-tile strong { display:block; color:#292b69; font:700 1.25rem 'Space Grotesk',sans-serif; }
+.stat-tile span { color:#7a82a0; font-size:.76rem; font-weight:700; }
+.quiz-heading { background:linear-gradient(110deg,#27275f,#5c55c7); color:#fff; border-radius:18px; padding:1.2rem 1.4rem; margin:1rem 0; box-shadow:0 10px 25px rgba(70,65,160,.13); }
+.quiz-heading h3 { color:#fff; margin:.25rem 0; }
+.quiz-heading p { color:#e2e1ff; margin:0; font-size:.9rem; }
+.question-card { display:flex; align-items:center; justify-content:space-between; gap:1rem; background:linear-gradient(110deg,#f1f0ff,#fafaff); border:1px solid #e5e2ff; border-radius:15px; padding:1rem 1.2rem; margin:1rem 0 .7rem; }
+.question-card .small-label { color:#5c55c7; }
+div[data-testid="stRadio"] > div { gap:.35rem; }
+div[data-testid="stRadio"] label p { font-weight:500; }
+@media (max-width:700px) {
+ .block-container { padding:1rem .8rem 2.5rem; }
+ .hero { padding:2rem 1.35rem; border-radius:21px; }
+ .hero h1 { font-size:2.35rem; }
+ .panel { padding:1.1rem; border-radius:18px; }
+ .stat-strip { gap:.45rem; }
+ .stat-tile { padding:.7rem .55rem; }
+ .stat-tile strong { font-size:1rem; }
+ .stat-tile span { font-size:.66rem; }
+}
 footer {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
@@ -231,6 +253,14 @@ if not articles:
     st.error("No usable Wikipedia summaries were found.")
     st.stop()
 
+st.markdown(f"""
+<div class="stat-strip">
+  <div class="stat-tile"><strong>{len(articles)}+</strong><span>LEARNING TOPICS</span></div>
+  <div class="stat-tile"><strong>3</strong><span>QUIZ EXPERIENCES</span></div>
+  <div class="stat-tile"><strong>AI + YOU</strong><span>SMARTER PRACTICE</span></div>
+</div>
+""", unsafe_allow_html=True)
+
 
 # ----------------------------- QUIZ SETUP -----------------------------
 st.markdown('<div class="panel"><div class="small-label">✦ QUIZ STUDIO</div><h3 style="margin:.35rem 0 1rem;color:#20264a;">Create your learning challenge</h3>', unsafe_allow_html=True)
@@ -333,7 +363,7 @@ if not quiz:
     st.stop()
 
 st.markdown(
-    f'<div class="panel"><div class="small-label">Your quiz</div><h3 style="margin:.25rem 0;">{st.session_state.mode}</h3><span style="color:#68758a;">{len(quiz)} questions · {st.session_state.get("topic") or "Wikipedia knowledge"}</span></div>',
+    f'<div class="quiz-heading"><div class="small-label" style="color:#d9d7ff;">YOUR CHALLENGE</div><h3>{st.session_state.mode}</h3><p>{len(quiz)} questions &nbsp;·&nbsp; {st.session_state.get("topic") or "Wikipedia knowledge"} &nbsp;·&nbsp; Take your time and do your best.</p></div>',
     unsafe_allow_html=True,
 )
 
@@ -341,7 +371,7 @@ if not st.session_state.get("submitted", False):
     with st.form("quiz_form"):
         answers = {}
         for index, question in enumerate(quiz):
-            st.markdown(f'<div class="question-card"><div class="small-label">QUESTION {index + 1} OF {len(quiz)}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="question-card"><div class="small-label">✦ QUESTION {index + 1:02d}</div><div style="color:#858ba5;font-size:.76rem;font-weight:700;">{index + 1} / {len(quiz)}</div></div>', unsafe_allow_html=True)
             if st.session_state.mode == "Reading comprehension":
                 with st.expander(f"Read passage: {question['title']}", expanded=(index == 0)):
                     st.write(question["passage"])
@@ -383,18 +413,21 @@ else:
     else:
         st.warning("Keep practising. Read the explanations and give it another try.")
 
-    st.markdown("### Answer review")
+    st.markdown("### Review your answers")
+    st.caption("Open each question to see the answer and explanation.")
     for index, question in enumerate(quiz):
         chosen = saved.get(index)
-        if chosen == question["answer"]:
-            st.success(f"Q{index + 1}. Correct")
-        else:
-            st.error(f"Q{index + 1}. Incorrect")
-            st.write(f"Your answer: {chosen or 'Not answered'}")
-            st.write(f"Correct answer: {question['answer']}")
-        if question.get("explanation"):
-            st.caption(question["explanation"])
-        st.divider()
+        is_correct = chosen == question["answer"]
+        label = "✓" if is_correct else "↗"
+        with st.expander(f"{label}  Question {index + 1}: {question['question']}", expanded=not is_correct):
+            if is_correct:
+                st.success("Correct answer")
+            else:
+                st.error("Not quite — keep learning!")
+                st.write(f"**Your answer:** {chosen or 'Not answered'}")
+            st.write(f"**Correct answer:** {question['answer']}")
+            if question.get("explanation"):
+                st.info(question["explanation"])
 
     if st.button("↻ Create another quiz", type="primary", use_container_width=True):
         for key in ("quiz", "mode", "submitted", "answers", "topic"):
