@@ -438,5 +438,390 @@
     ],
     "answer": "Human heart",
     "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nMachine learning is a field of artificial intelligence that studies algorithms that improve their performance on a task through experience or data. Common approaches include supervised learning, unsupervised learning, and reinforcement learning.",
+    "options": [
+      "Machine learning",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Machine learning",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nAn artificial neural network is a computing system inspired by biological neural networks. It is made of interconnected units often called neurons and is commonly used to learn patterns from data.",
+    "options": [
+      "Neural network",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Neural network",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nDeep learning is a subset of machine learning that uses neural networks with multiple layers to learn representations from large amounts of data. It is used in image recognition, speech processing, and language tasks.",
+    "options": [
+      "Deep learning",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Deep learning",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nNatural language processing is a field of artificial intelligence concerned with interactions between computers and human language. Tasks include translation, text classification, speech recognition, and summarization.",
+    "options": [
+      "Natural language processing",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Natural language processing",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nComputer vision is a field of artificial intelligence that enables computers to interpret information from images and videos. Applications include object detection, image classification, and medical image analysis.",
+    "options": [
+      "Computer vision",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Computer vision",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nA large language model is a language model trained on large text datasets to understand and generate text. Such models commonly use transformer architectures and can perform tasks such as summarization, translation, and question answering.",
+    "options": [
+      "Large language model",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Large language model",
+    "difficulty": "Hard"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nPython is a high-level, general-purpose programming language known for its readable syntax. It supports procedural, object-oriented, and functional programming and is widely used in automation, data science, and web development.",
+    "options": [
+      "Python (programming language)",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Python (programming language)",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nJava is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. Java programs commonly run on the Java Virtual Machine.",
+    "options": [
+      "Java (programming language)",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Java (programming language)",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nC++ is a general-purpose programming language that supports procedural, object-oriented, and generic programming. It is widely used in systems software, games, and performance-sensitive applications.",
+    "options": [
+      "C++",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "C++",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nA data structure is a way of organizing and storing data so it can be accessed and modified efficiently. Common examples include arrays, linked lists, stacks, queues, trees, and hash tables.",
+    "options": [
+      "Data structure",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Data structure",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nAn algorithm is a finite sequence of well-defined instructions for solving a problem or performing a computation. Algorithms are commonly evaluated by their time and space complexity.",
+    "options": [
+      "Algorithm",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Algorithm",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nAn operating system is system software that manages computer hardware and software resources and provides common services for computer programs. Examples include Linux, Windows, macOS, and Android.",
+    "options": [
+      "Operating system",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Operating system",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nA database is an organized collection of data that can be stored, accessed, managed, and updated. Relational databases organize data into tables and commonly use SQL to query and manipulate records.",
+    "options": [
+      "Database",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Database",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nA computer network is a group of interconnected computing devices that exchange data and share resources. Networks use communication protocols, and the Internet is the largest global network of networks.",
+    "options": [
+      "Computer network",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Computer network",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nCybersecurity is the practice of protecting computer systems, networks, and data from unauthorized access, attacks, damage, or disruption. Common areas include network security, application security, and information security.",
+    "options": [
+      "Cybersecurity",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Cybersecurity",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nA blockchain is a distributed digital ledger that records transactions in blocks linked using cryptographic techniques. Many blockchain systems are maintained by a network of computers rather than a single central authority.",
+    "options": [
+      "Blockchain",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Blockchain",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nQuantum computing uses quantum-mechanical phenomena such as superposition and entanglement to process information. Its basic unit of information is the qubit, which differs from a classical bit.",
+    "options": [
+      "Quantum computing",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Quantum computing",
+    "difficulty": "Hard"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nDNA, or deoxyribonucleic acid, is a molecule that carries the genetic instructions used in the growth, development, functioning, and reproduction of many organisms. Its structure is commonly described as a double helix.",
+    "options": [
+      "DNA",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "DNA",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe cell is the basic structural and functional unit of living organisms. Cells are commonly classified as prokaryotic or eukaryotic, and many contain structures called organelles.",
+    "options": [
+      "Cell (biology)",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Cell (biology)",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nGravity is a fundamental interaction that attracts objects with mass or energy toward one another. In Newtonian mechanics it is described as a force, while general relativity describes it through the curvature of spacetime.",
+    "options": [
+      "Gravity",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Gravity",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nClimate change refers to long-term shifts in temperatures and weather patterns. Human activities, especially the burning of fossil fuels, have been the main driver of observed global warming since the mid-20th century.",
+    "options": [
+      "Climate change",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Climate change",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nRenewable energy comes from sources that are naturally replenished on a human timescale, such as sunlight, wind, water movement, geothermal heat, and biomass.",
+    "options": [
+      "Renewable energy",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Renewable energy",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nEarth is the third planet from the Sun and the only astronomical object known to support life. Its surface is divided among continents and ocean basins, and it has one natural satellite, the Moon.",
+    "options": [
+      "Earth",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Earth",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Himalayas are a mountain range in Asia separating the plains of the Indian subcontinent from the Tibetan Plateau. The range contains many of the world's highest peaks, including Mount Everest.",
+    "options": [
+      "Himalayas",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Himalayas",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Suez Canal is an artificial sea-level waterway in Egypt connecting the Mediterranean Sea to the Red Sea. It provides a shorter maritime route between Europe and Asia.",
+    "options": [
+      "Suez Canal",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Suez Canal",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe French Revolution was a period of major political and social change in France that began in 1789. It led to the end of the monarchy, the establishment of a republic, and wider political transformations in Europe.",
+    "options": [
+      "French Revolution",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "French Revolution",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Indus Valley Civilisation was a Bronze Age civilisation in the northwestern regions of South Asia. Major urban centres included Harappa and Mohenjo-daro, known for planned streets and drainage systems.",
+    "options": [
+      "Indus Valley Civilisation",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Indus Valley Civilisation",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nMahatma Gandhi was an Indian lawyer and political leader who led campaigns for India's independence from British rule. He became internationally known for promoting nonviolent resistance and civil disobedience.",
+    "options": [
+      "Mahatma Gandhi",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Mahatma Gandhi",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Constitution of India is the supreme law of India. It came into effect on 26 January 1950 and establishes the framework of government, fundamental rights, and duties, and the distribution of powers.",
+    "options": [
+      "Indian Constitution",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Indian Constitution",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nCricket is a bat-and-ball sport played between two teams of eleven players. The game is played on a field with a pitch at its centre, and major formats include Test cricket, One Day Internationals, and Twenty20.",
+    "options": [
+      "Cricket",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Cricket",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nAssociation football, commonly known as football or soccer, is a team sport played by two teams of eleven players. The objective is to score by getting the ball into the opposing team's goal, primarily using the feet.",
+    "options": [
+      "Football",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Football",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nChess is a strategy board game played by two players on an eight-by-eight board. Each player begins with sixteen pieces, and the objective is to checkmate the opponent's king.",
+    "options": [
+      "Chess",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Chess",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nBadminton is a racket sport played by either two opposing players or two opposing pairs. Players score points by striking a shuttlecock over a net so that it lands in the opponent's half of the court.",
+    "options": [
+      "Badminton",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Badminton",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nBasketball is a team sport in which two teams, usually of five players each, compete to score points by throwing a ball through the opponent's hoop. It was invented by James Naismith in 1891.",
+    "options": [
+      "Basketball",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Basketball",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Olympic torch relay is a tradition associated with the modern Olympic Games in which a flame is carried from its origin to the host city. The flame is lit before the opening ceremony and symbolizes continuity between the ancient and modern Games.",
+    "options": [
+      "Olympic torch relay",
+      "General knowledge",
+      "World history",
+      "Computer science"
+    ],
+    "answer": "Olympic torch relay",
+    "difficulty": "Medium"
   }
 ]
