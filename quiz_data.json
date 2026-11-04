@@ -1,112 +1,442 @@
 [
-    {
-        "question": "Which Wikipedia topic is described below?\nLagoa da Conceição is a district located next to a large lagoon of the same name near the center of Florianópolis, capital city of the state of Santa Catarina, located in the south of Brazil. Lagoa da Conceição combines beaches, dunes, hills, and the biggest lagoon on the island. The area has a small town center with a medical clinic, post office, ",
-        "options": [
-            "Jordi Quintillà",
-            "Radio Expeditions",
-            "Lagoa da Conceição",
-            "David Lindsay (novelist)"
-        ],
-        "answer": "Lagoa da Conceição",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nYolandita En Vivo is the second live album by Puerto Rican singer Yolandita Monge. It was recorded live at Centro de Bellas Artes, Puerto Rico, on September 17–19, 1999, but released in 2000. This partial concert album contains several medleys of her early hits, a cover of Glenn Monroig's gay anthem \"Me Dijeron\"' and a duet with her daughter Paola ",
-        "options": [
-            "Run Cold",
-            "Cutoff voltage",
-            "Yolandita En Vivo",
-            "Robert Daniels"
-        ],
-        "answer": "Yolandita En Vivo",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nRavinder Singh Sangwan is an Indian Greco-Roman wrestler. Singh has won 15 national championships and gold medals in the 2005, 2007, 2009 and 2011 Commonwealth Wrestling Championships. At the 2010 Commonwealth Games, he won a gold in the Men's Greco-Roman 60 kg wrestling category. At the 2010 Asian Games he won a bronze medal in the same category. ",
-        "options": [
-            "Interior algebra",
-            "Ravinder Singh (wrestler)",
-            "End of Love (song)",
-            "John Pipkin"
-        ],
-        "answer": "Ravinder Singh (wrestler)",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nJesus Fuertes was a Cubist painter, who was initiated into the world of art by Salvador Dalí, and was described as a \"true genius\" by Pablo Picasso. Fuertes often chose women and cats as his subject matter. Several of his well-known works involve the use of shades of blue, which earned him the nickname \"Painter of Blue\". His paintings hang in such ",
-        "options": [
-            "Page County",
-            "Lenice Oliveira",
-            "Jesus Fuertes",
-            "Hydroxymethylglutaryl-CoA hydrolase"
-        ],
-        "answer": "Jesus Fuertes",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nBibile is a Sinhalese given name and a surname. Notable people with the name include:",
-        "options": [
-            "Bibile (name)",
-            "Sea Studios Foundation",
-            "Fenton R. McCreery",
-            "Mischief Makers (disambiguation)"
-        ],
-        "answer": "Bibile (name)",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nGerlinde Huber-Rebenich is a German philologist. She specializes in medieval and neo-Latin literature, and the medieval reception of Ovid.",
-        "options": [
-            "List of football clubs in Bonaire",
-            "Kungak",
-            "Joseph Fagan",
-            "Gerlinde Huber-Rebenich"
-        ],
-        "answer": "Gerlinde Huber-Rebenich",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nVolevčice is a municipality and village in Most District in the Ústí nad Labem Region of the Czech Republic. It has about 100 inhabitants. Volevčice lies approximately 10 kilometres (6 mi) south-east of Most, 36 km (22 mi) south-west of Ústí nad Labem, and 65 km (40 mi) north-west of Prague.",
-        "options": [
-            "30 cm Bubble Chamber (CERN)",
-            "Wallum froglet",
-            "Volevčice (Most District)",
-            "Leonid Gubanov"
-        ],
-        "answer": "Volevčice (Most District)",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\n\"Why I Am\" is a song by Dave Matthews Band from their album Big Whiskey & the GrooGrux King Why I Am and Why I Am Not may refer to:",
-        "options": [
-            "Shogun Finance Ltd v Hudson",
-            "Robert McKim",
-            "Why I Am",
-            "Globidrillia hemphillii"
-        ],
-        "answer": "Why I Am",
-        "difficulty": "Easy"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nThe New Zealand Cross may refer to one of two medals, both issued by the government of New Zealand:\n  - New Zealand Cross (1869), first New Zealand Cross instituted in 1869 to recognise gallantry during the New Zealand Wars of 1860 to 1872 – provided recognition to members of the local volunteer forces who were not eligible for the Victoria Cross\n ",
-        "options": [
-            "Timeline of LGBTQ Mormon history in the 1950s",
-            "Photohydrogen",
-            "New Zealand Cross",
-            "Michael McCaffrey (cricketer)"
-        ],
-        "answer": "New Zealand Cross",
-        "difficulty": "Medium"
-    },
-    {
-        "question": "Which Wikipedia topic is described below?\nTurres Concordiae is a titular see of the Roman Catholic Church, North Africa. The ancient bishopric was founded in the Roman province of Numidia, Roman North Africa. The exact location of its seat and cathedra, though is not known. However, its name indicates its cathedra was founded in proximity to a fort and it is possible that this town was loc",
-        "options": [
-            "Turres Concordiae",
-            "Culminating project",
-            "Tuivasa",
-            "François Pallu"
-        ],
-        "answer": "Turres Concordiae",
-        "difficulty": "Medium"
-    }
+  {
+    "question": "Which Wikipedia topic is described below?\nLagoa da Conceição is a district located next to a large lagoon of the same name near the center of Florianópolis, capital city of the state of Santa Catarina, located in the south of Brazil. Lagoa da Conceição combines beaches, dunes, hills, and the biggest lagoon on the island. The area has a small town center with a medical clinic, post office, ",
+    "options": [
+      "Jordi Quintillà",
+      "Radio Expeditions",
+      "Lagoa da Conceição",
+      "David Lindsay (novelist)"
+    ],
+    "answer": "Lagoa da Conceição",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nYolandita En Vivo is the second live album by Puerto Rican singer Yolandita Monge. It was recorded live at Centro de Bellas Artes, Puerto Rico, on September 17–19, 1999, but released in 2000. This partial concert album contains several medleys of her early hits, a cover of Glenn Monroig's gay anthem \"Me Dijeron\"' and a duet with her daughter Paola ",
+    "options": [
+      "Run Cold",
+      "Cutoff voltage",
+      "Yolandita En Vivo",
+      "Robert Daniels"
+    ],
+    "answer": "Yolandita En Vivo",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nRavinder Singh Sangwan is an Indian Greco-Roman wrestler. Singh has won 15 national championships and gold medals in the 2005, 2007, 2009 and 2011 Commonwealth Wrestling Championships. At the 2010 Commonwealth Games, he won a gold in the Men's Greco-Roman 60 kg wrestling category. At the 2010 Asian Games he won a bronze medal in the same category. ",
+    "options": [
+      "Interior algebra",
+      "Ravinder Singh (wrestler)",
+      "End of Love (song)",
+      "John Pipkin"
+    ],
+    "answer": "Ravinder Singh (wrestler)",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nJesus Fuertes was a Cubist painter, who was initiated into the world of art by Salvador Dalí, and was described as a \"true genius\" by Pablo Picasso. Fuertes often chose women and cats as his subject matter. Several of his well-known works involve the use of shades of blue, which earned him the nickname \"Painter of Blue\". His paintings hang in such ",
+    "options": [
+      "Page County",
+      "Lenice Oliveira",
+      "Jesus Fuertes",
+      "Hydroxymethylglutaryl-CoA hydrolase"
+    ],
+    "answer": "Jesus Fuertes",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nBibile is a Sinhalese given name and a surname. Notable people with the name include:",
+    "options": [
+      "Bibile (name)",
+      "Sea Studios Foundation",
+      "Fenton R. McCreery",
+      "Mischief Makers (disambiguation)"
+    ],
+    "answer": "Bibile (name)",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nGerlinde Huber-Rebenich is a German philologist. She specializes in medieval and neo-Latin literature, and the medieval reception of Ovid.",
+    "options": [
+      "List of football clubs in Bonaire",
+      "Kungak",
+      "Joseph Fagan",
+      "Gerlinde Huber-Rebenich"
+    ],
+    "answer": "Gerlinde Huber-Rebenich",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nVolevčice is a municipality and village in Most District in the Ústí nad Labem Region of the Czech Republic. It has about 100 inhabitants. Volevčice lies approximately 10 kilometres (6 mi) south-east of Most, 36 km (22 mi) south-west of Ústí nad Labem, and 65 km (40 mi) north-west of Prague.",
+    "options": [
+      "30 cm Bubble Chamber (CERN)",
+      "Wallum froglet",
+      "Volevčice (Most District)",
+      "Leonid Gubanov"
+    ],
+    "answer": "Volevčice (Most District)",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\n\"Why I Am\" is a song by Dave Matthews Band from their album Big Whiskey & the GrooGrux King Why I Am and Why I Am Not may refer to:",
+    "options": [
+      "Shogun Finance Ltd v Hudson",
+      "Robert McKim",
+      "Why I Am",
+      "Globidrillia hemphillii"
+    ],
+    "answer": "Why I Am",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe New Zealand Cross may refer to one of two medals, both issued by the government of New Zealand:\n  - New Zealand Cross (1869), first New Zealand Cross instituted in 1869 to recognise gallantry during the New Zealand Wars of 1860 to 1872 – provided recognition to members of the local volunteer forces who were not eligible for the Victoria Cross\n ",
+    "options": [
+      "Timeline of LGBTQ Mormon history in the 1950s",
+      "Photohydrogen",
+      "New Zealand Cross",
+      "Michael McCaffrey (cricketer)"
+    ],
+    "answer": "New Zealand Cross",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nTurres Concordiae is a titular see of the Roman Catholic Church, North Africa. The ancient bishopric was founded in the Roman province of Numidia, Roman North Africa. The exact location of its seat and cathedra, though is not known. However, its name indicates its cathedra was founded in proximity to a fort and it is possible that this town was loc",
+    "options": [
+      "Turres Concordiae",
+      "Culminating project",
+      "Tuivasa",
+      "François Pallu"
+    ],
+    "answer": "Turres Concordiae",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe theory of relativity was developed by Albert Einstein. It includes special relativity, which describes space and time in the absence of gravity, and general relativity, which describes gravity as a property of the curvature of spacetime.",
+    "options": [
+      "Why I Am",
+      "Human heart",
+      "Indian Space Research Organisation",
+      "Theory of relativity"
+    ],
+    "answer": "Theory of relativity",
+    "difficulty": "Hard"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe water cycle describes the continuous movement of water on, above, and below the surface of Earth. Its main processes include evaporation, condensation, precipitation, and collection.",
+    "options": [
+      "Bibile (name)",
+      "Water cycle",
+      "Internet",
+      "Theory of relativity"
+    ],
+    "answer": "Water cycle",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in Agra, India. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his wife Mumtaz Mahal.",
+    "options": [
+      "Bengal tiger",
+      "Lagoa da Conceição",
+      "Moon",
+      "Taj Mahal"
+    ],
+    "answer": "Taj Mahal",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nPhotosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods from carbon dioxide and water. It generally involves the green pigment chlorophyll and releases oxygen.",
+    "options": [
+      "Bengal tiger",
+      "Photosynthesis",
+      "Volevčice (Most District)",
+      "Theory of relativity"
+    ],
+    "answer": "Photosynthesis",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Great Wall of China is a series of fortifications built across the historical northern borders of China. Different sections were constructed by different dynasties over many centuries.",
+    "options": [
+      "Eiffel Tower",
+      "Human brain",
+      "Great Wall of China",
+      "Taj Mahal"
+    ],
+    "answer": "Great Wall of China",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe human brain is the central organ of the human nervous system. It controls and coordinates most functions of the body and processes information received from the senses.",
+    "options": [
+      "Human brain",
+      "Ravinder Singh (wrestler)",
+      "Internet",
+      "Photosynthesis"
+    ],
+    "answer": "Human brain",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Amazon rainforest is a moist broadleaf tropical rainforest in the Amazon biome that covers much of the Amazon basin of South America. It is known for its exceptional biodiversity.",
+    "options": [
+      "Internet",
+      "Human heart",
+      "Human brain",
+      "Amazon rainforest"
+    ],
+    "answer": "Amazon rainforest",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe solar system consists of the Sun and the objects that orbit it, including eight planets, their moons, dwarf planets, asteroids, and comets.",
+    "options": [
+      "International Space Station",
+      "Nile",
+      "Solar System",
+      "Binary number"
+    ],
+    "answer": "Solar System",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Indian Space Research Organisation is the national space agency of India. It was established in 1969 and is responsible for India's space research and exploration programme.",
+    "options": [
+      "Mount Everest",
+      "Ravinder Singh (wrestler)",
+      "Renaissance",
+      "Indian Space Research Organisation"
+    ],
+    "answer": "Indian Space Research Organisation",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Pacific Ocean is the largest and deepest of Earth's five oceanic divisions. It extends from the Arctic Ocean in the north to the Southern Ocean in the south.",
+    "options": [
+      "Lagoa da Conceição",
+      "Pacific Ocean",
+      "Taj Mahal",
+      "Human genome"
+    ],
+    "answer": "Pacific Ocean",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe printing press is a device for applying pressure to an inked surface resting upon a print medium, thereby transferring ink. Johannes Gutenberg's improvements to movable-type printing in Europe helped spread books widely.",
+    "options": [
+      "Human genome",
+      "Printing press",
+      "Pacific Ocean",
+      "Gerlinde Huber-Rebenich"
+    ],
+    "answer": "Printing press",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe United Nations is an intergovernmental organization founded in 1945. Its stated aims include maintaining international peace and security, developing friendly relations among nations, and promoting human rights.",
+    "options": [
+      "Nile",
+      "United Nations",
+      "Mount Everest",
+      "Lagoa da Conceição"
+    ],
+    "answer": "United Nations",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It was constructed for the 1889 World's Fair and became a prominent symbol of France.",
+    "options": [
+      "Printing press",
+      "Great Wall of China",
+      "Eiffel Tower",
+      "Sahara"
+    ],
+    "answer": "Eiffel Tower",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Moon is Earth's only natural satellite. It is the fifth-largest satellite in the Solar System and the largest and most massive relative to its parent planet.",
+    "options": [
+      "Moon",
+      "Human genome",
+      "C (programming language)",
+      "Artificial intelligence"
+    ],
+    "answer": "Moon",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe periodic table is an arrangement of chemical elements organized by atomic number, electron configuration, and recurring chemical properties. Its structure shows periodic trends.",
+    "options": [
+      "Why I Am",
+      "Artificial intelligence",
+      "Ravinder Singh (wrestler)",
+      "Periodic table"
+    ],
+    "answer": "Periodic table",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Olympic Games are an international sporting event featuring summer and winter sports competitions. Thousands of athletes from around the world participate in events held every four years.",
+    "options": [
+      "Why I Am",
+      "Lagoa da Conceição",
+      "Olympic Games",
+      "Ravinder Singh (wrestler)"
+    ],
+    "answer": "Olympic Games",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Internet is the global system of interconnected computer networks that uses the Internet protocol suite to communicate between networks and devices.",
+    "options": [
+      "Lagoa da Conceição",
+      "Water cycle",
+      "Internet",
+      "Yolandita En Vivo"
+    ],
+    "answer": "Internet",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Nile is a major north-flowing river in northeastern Africa. It is commonly regarded as one of the longest rivers in the world and flows into the Mediterranean Sea.",
+    "options": [
+      "Human heart",
+      "Photosynthesis",
+      "Nile",
+      "Indian Ocean"
+    ],
+    "answer": "Nile",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nArtificial intelligence is intelligence demonstrated by machines, as opposed to natural intelligence displayed by animals and humans. Common applications include speech recognition, computer vision, and language processing.",
+    "options": [
+      "Renaissance",
+      "Artificial intelligence",
+      "Indian Ocean",
+      "Moon"
+    ],
+    "answer": "Artificial intelligence",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe binary number system is a base-2 numeral system that uses only two symbols, typically 0 and 1. It is widely used in digital electronics and computing.",
+    "options": [
+      "Olympic Games",
+      "Artificial intelligence",
+      "Binary number",
+      "Volevčice (Most District)"
+    ],
+    "answer": "Binary number",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe International Space Station is a modular space station in low Earth orbit. It is a multinational collaborative project involving several space agencies.",
+    "options": [
+      "International Space Station",
+      "Indian Ocean",
+      "Taj Mahal",
+      "Olympic Games"
+    ],
+    "answer": "International Space Station",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Sahara is a desert located in North Africa. It is the largest hot desert in the world and covers a large part of the region.",
+    "options": [
+      "Internet",
+      "Moon",
+      "Mount Everest",
+      "Sahara"
+    ],
+    "answer": "Sahara",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Indian Ocean is the third-largest of the world's oceanic divisions. It is bounded by Asia to the north, Africa to the west, and Australia to the east.",
+    "options": [
+      "Indian Ocean",
+      "Pacific Ocean",
+      "Nile",
+      "United Nations"
+    ],
+    "answer": "Indian Ocean",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe C programming language is a general-purpose programming language created by Dennis Ritchie. It is widely used in systems programming and has influenced many later programming languages.",
+    "options": [
+      "Bibile (name)",
+      "Jesus Fuertes",
+      "C (programming language)",
+      "Mount Everest"
+    ],
+    "answer": "C (programming language)",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe human genome is the complete set of nucleic acid sequence information for humans, encoded as DNA within the 23 chromosome pairs in cell nuclei and in a small DNA molecule found within individual mitochondria.",
+    "options": [
+      "Human genome",
+      "Mount Everest",
+      "Bengal tiger",
+      "Internet"
+    ],
+    "answer": "Human genome",
+    "difficulty": "Hard"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Renaissance was a period in European history marking the transition from the Middle Ages to modernity. It was characterized by renewed interest in classical art, literature, science, and learning.",
+    "options": [
+      "Human genome",
+      "Indian Space Research Organisation",
+      "Bibile (name)",
+      "Renaissance"
+    ],
+    "answer": "Renaissance",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nMount Everest is Earth's highest mountain above sea level, located in the Himalayas on the border between Nepal and the Tibet Autonomous Region of China.",
+    "options": [
+      "Nile",
+      "Mount Everest",
+      "Photosynthesis",
+      "Yolandita En Vivo"
+    ],
+    "answer": "Mount Everest",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe World Wide Web is an information system where documents and other web resources are identified by URLs and can be accessed over the Internet using a web browser.",
+    "options": [
+      "Turres Concordiae",
+      "Bibile (name)",
+      "World Wide Web",
+      "Mount Everest"
+    ],
+    "answer": "World Wide Web",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe Bengal tiger is a population of the tiger subspecies Panthera tigris tigris native to the Indian subcontinent. It is the national animal of India and Bangladesh.",
+    "options": [
+      "Ravinder Singh (wrestler)",
+      "Bengal tiger",
+      "C (programming language)",
+      "Great Wall of China"
+    ],
+    "answer": "Bengal tiger",
+    "difficulty": "Easy"
+  },
+  {
+    "question": "Which Wikipedia topic is described below?\nThe human heart is an organ that pumps blood through the blood vessels of the circulatory system. In humans it has four chambers.",
+    "options": [
+      "Human brain",
+      "Nile",
+      "Bengal tiger",
+      "Human heart"
+    ],
+    "answer": "Human heart",
+    "difficulty": "Easy"
+  }
 ]
