@@ -64,10 +64,28 @@ div[data-testid="stRadio"] label p { font-weight:500; }
  .stat-tile span { font-size:.66rem; }
 }
 /* Guided quiz interaction */
-.interaction-note { color:#78819e; font-size:.86rem; margin-top:-.35rem; }
-.question-surface { background:#fff; border:1px solid #e6e8f3; border-radius:22px; padding:1.35rem 1.5rem; box-shadow:0 12px 32px rgba(39,42,95,.06); margin:.75rem 0 1rem; }
-.progress-meta { display:flex; justify-content:space-between; color:#747d9b; font-size:.8rem; font-weight:700; margin:.3rem 0 .45rem; }
-.answer-hint { color:#7b83a0; font-size:.8rem; margin:.45rem 0; }
+.interaction-note { color:#78819e; font-size:.9rem; margin:.35rem 0 1rem; }
+.progress-meta { display:flex; justify-content:space-between; color:#747d9b; font-size:.78rem; font-weight:800; letter-spacing:.7px; margin:.5rem 0 .55rem; }
+.answer-hint { color:#858da7; font-size:.8rem; margin:.65rem 0 .35rem; }
+.quiz-heading { padding:1.45rem 1.6rem; border-radius:20px; }
+.question-topline { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:.2rem 0 .75rem; }
+.question-badge { display:inline-flex; align-items:center; padding:.42rem .75rem; border-radius:30px; background:#eeedff; color:#5149c9; font-size:.72rem; font-weight:900; letter-spacing:1px; }
+.question-prompt { background:linear-gradient(135deg,#f6f5ff,#fbfbff); border:1px solid #e8e6fb; border-radius:18px; padding:1.25rem 1.35rem; margin:.35rem 0 1.1rem; }
+.question-prompt h3 { color:#20264a; font:700 clamp(1.15rem,2.5vw,1.45rem) 'Space Grotesk',sans-serif; line-height:1.45; margin:.2rem 0; }
+.source-chip { color:#767f9e; font-size:.78rem; font-weight:600; margin-top:.6rem; }
+div[data-testid="stRadio"] > label { color:#626d8b; font-size:.82rem; font-weight:800; margin-bottom:.5rem; }
+div[data-testid="stRadio"] > div { gap:.55rem; }
+div[data-testid="stRadio"] > div > label { background:#fff; border:1.5px solid #e7e9f2; border-radius:14px; padding:.8rem 1rem; margin:0; min-height:52px; transition:all .18s ease; }
+div[data-testid="stRadio"] > div > label:hover { border-color:#9d96ed; background:#faf9ff; }
+div[data-testid="stRadio"] > div > label[data-checked="true"] { border-color:#7168df; background:#f2f0ff; }
+div[data-testid="stRadio"] > div > label p { color:#303957; font-weight:600; line-height:1.4; }
+div.stFormSubmitButton > button { min-height:3.1rem; }
+div.stFormSubmitButton > button[kind="primary"] { background:linear-gradient(110deg,#5149c9,#7969ed); }
+@media (max-width:700px) {
+ .question-prompt { padding:1rem; }
+ .question-topline { align-items:flex-start; }
+ .quiz-heading { padding:1.15rem; }
+}
 footer {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
@@ -392,30 +410,39 @@ if not st.session_state.get("submitted", False):
 
     with st.form(f"interactive_quiz_form_{current_index}"):
         st.markdown(
-            f'<div class="question-surface"><div class="small-label">QUESTION {current_index + 1:02d}</div></div>',
+            f'<div class="question-topline"><span class="question-badge">QUESTION {current_index + 1:02d}</span><span class="small-label">CHOOSE ONE ANSWER</span></div>',
             unsafe_allow_html=True,
         )
         if st.session_state.mode == "Reading comprehension":
-            with st.expander(f"Read passage: {current_question['title']}", expanded=True):
+            with st.expander(f"📖 Read passage: {current_question['title']}", expanded=True):
                 st.write(current_question["passage"])
         if st.session_state.mode == "Identify the Wikipedia article":
-            st.markdown("#### Identify this Wikipedia article")
-            st.write(current_question.get("question", ""))
+            prompt_text = current_question.get("question", "Identify this Wikipedia article.")
+            st.markdown(
+                f'<div class="question-prompt"><h3>Which Wikipedia article does this describe?</h3></div>',
+                unsafe_allow_html=True,
+            )
         else:
-            st.markdown(f"#### {current_question['question']}")
-            if st.session_state.mode == "Gemini AI quiz":
-                st.caption(f"Source: {current_question.get('title', 'Wikipedia')}")
+            prompt_text = current_question["question"]
+            source_line = (
+                f'<div class="source-chip">SOURCE · {current_question.get("title", "Wikipedia")}</div>'
+                if st.session_state.mode == "Gemini AI quiz" else ""
+            )
+            st.markdown(
+                f'<div class="question-prompt"><h3>{prompt_text}</h3>{source_line}</div>',
+                unsafe_allow_html=True,
+            )
 
         options = current_question["options"]
         previous_answer = saved_answers.get(current_index)
         default_index = options.index(previous_answer) if previous_answer in options else None
         selected_answer = st.radio(
-            "Select your answer",
+            "YOUR ANSWER",
             options,
             index=default_index,
             key=f"interactive_answer_{current_index}",
         )
-        st.markdown('<div class="answer-hint">Your selection is saved when you continue.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="answer-hint">You can change your answer before finishing the quiz.</div>', unsafe_allow_html=True)
         previous_col, next_col = st.columns([1, 2])
         with previous_col:
             previous_clicked = st.form_submit_button(
@@ -424,7 +451,7 @@ if not st.session_state.get("submitted", False):
                 use_container_width=True,
             )
         with next_col:
-            next_label = "Finish quiz ✓" if current_index == len(quiz) - 1 else "Save & continue →"
+            next_label = "Finish quiz ✓" if current_index == len(quiz) - 1 else "Continue →"
             next_clicked = st.form_submit_button(
                 next_label,
                 type="primary",
