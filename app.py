@@ -15,29 +15,41 @@ GEMINI_MODEL = "gemini-3.5-flash-lite"
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
-:root { --ink:#172033; --muted:#68758a; --blue:#4263eb; --pale:#f4f7ff; }
+:root { --ink:#17213b; --muted:#71809b; --primary:#635bdb; --line:#e8eaf5; }
 html, body, [class*="css"] { font-family:'DM Sans',sans-serif; }
-.stApp { background:linear-gradient(180deg,#f7f9ff 0%,#ffffff 48%,#f8faff 100%); color:var(--ink); }
-.block-container { max-width:1050px; padding-top:2rem; padding-bottom:4rem; }
-.hero { padding:2.1rem 2.2rem; border-radius:24px; color:white; background:linear-gradient(120deg,#172554 0%,#2846a5 55%,#5875ed 100%); margin-bottom:1.5rem; box-shadow:0 14px 38px rgba(35,62,145,.16); }
-.hero-kicker { text-transform:uppercase; letter-spacing:2px; font-size:.76rem; font-weight:800; opacity:.8; }
-.hero h1 { font-family:'Space Grotesk',sans-serif; color:white; font-size:2.5rem; line-height:1.15; margin:.45rem 0; }
-.hero p { color:#e5eaff; font-size:1.02rem; margin:0; }
-.panel { background:white; border:1px solid #e7ebf5; border-radius:18px; padding:1.2rem 1.35rem; box-shadow:0 5px 20px rgba(31,48,90,.045); margin-bottom:1rem; }
-.small-label { color:#64748b; font-size:.76rem; font-weight:800; text-transform:uppercase; letter-spacing:1.2px; }
-.question-card { background:white; border:1px solid #e4e9f3; border-radius:18px; padding:1.35rem; margin:.7rem 0 1rem; }
-div.stButton > button, div.stFormSubmitButton > button { border-radius:12px; font-weight:700; min-height:2.8rem; }
-div[data-testid="stMetric"] { background:#f5f7ff; border:1px solid #e6eaff; border-radius:15px; padding:1rem; }
-div[data-testid="stProgress"] > div { border-radius:20px; }
+.stApp { background:radial-gradient(ellipse at 8% 0%,#e9eaff 0%,transparent 32%),linear-gradient(180deg,#f7f8ff 0%,#fff 55%,#f8f9ff 100%); color:var(--ink); }
+.block-container { max-width:1120px; padding-top:2.2rem; padding-bottom:4rem; }
+.hero { position:relative; overflow:hidden; padding:2.8rem 2.7rem; border:1px solid rgba(255,255,255,.2); border-radius:28px; color:white; background:linear-gradient(115deg,#171b45 0%,#383b91 52%,#7166e8 100%); margin-bottom:1.3rem; box-shadow:0 22px 55px rgba(52,53,130,.20); }
+.hero:after { content:""; position:absolute; width:290px; height:290px; border:1px solid rgba(255,255,255,.15); border-radius:50%; right:-65px; top:-115px; box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025); }
+.hero-kicker { display:inline-block; text-transform:uppercase; letter-spacing:2px; font-size:.72rem; font-weight:800; color:#d9d7ff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); padding:.42rem .75rem; border-radius:30px; }
+.hero h1 { font-family:'Space Grotesk',sans-serif; color:white; font-size:clamp(2.4rem,5vw,3.5rem); line-height:1.08; margin:.85rem 0 .55rem; letter-spacing:-1.5px; }
+.hero p { color:#e7e8ff; font-size:1.05rem; margin:0; max-width:620px; }
+.panel { background:rgba(255,255,255,.92); border:1px solid var(--line); border-radius:22px; padding:1.45rem 1.55rem; box-shadow:0 9px 30px rgba(34,43,92,.055); margin-bottom:1.1rem; }
+.small-label { color:#7a82a0; font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:1.35px; }
+.question-card { background:linear-gradient(110deg,#f1f0ff,#fafaff); border:1px solid #e5e2ff; border-radius:15px; padding:1rem 1.2rem; margin:.7rem 0 .5rem; }
+div[data-testid="stSelectbox"] label, div[data-testid="stTextInput"] label { font-weight:700; color:#313b59; }
+div[data-testid="stSelectbox"] [data-baseweb="select"] > div, div[data-testid="stTextInput"] input { border-radius:12px; border-color:#dfe3f0; background:#fff; }
+div.stButton > button, div.stFormSubmitButton > button { border-radius:13px; font-weight:800; min-height:2.9rem; border:0; transition:all .2s ease; }
+div.stButton > button[kind="primary"], div.stFormSubmitButton > button[kind="primary"] { background:linear-gradient(110deg,#5149c9,#7969ed); box-shadow:0 7px 18px rgba(91,80,205,.2); }
+div.stButton > button:hover, div.stFormSubmitButton > button:hover { transform:translateY(-1px); box-shadow:0 9px 22px rgba(70,75,145,.16); }
+div[data-testid="stMetric"] { background:linear-gradient(145deg,#f3f2ff,#fff); border:1px solid #e5e3fa; border-radius:18px; padding:1rem 1.15rem; }
+div[data-testid="stMetricLabel"] { color:#707b99; font-weight:700; }
+div[data-testid="stMetricValue"] { color:#292b69; font-family:'Space Grotesk',sans-serif; }
+div[data-testid="stProgress"] > div { border-radius:20px; height:10px; }
+div[data-testid="stProgress"] > div > div { background:linear-gradient(90deg,#5149c9,#8b7cf6); border-radius:20px; }
+div[data-testid="stRadio"] label { background:#fff; border:1px solid #e7e9f2; border-radius:12px; padding:.55rem .8rem; margin:.25rem 0; transition:border .15s ease; }
+div[data-testid="stRadio"] label:hover { border-color:#aaa4ef; }
+.stAlert { border-radius:14px; }
+hr { border-color:#eceef6; }
 footer {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="hero">
-  <div class="hero-kicker">Wikipedia-powered learning</div>
-  <h1>WikiQuiz AI</h1>
-  <p>Explore what you know. Challenge what you don't. Learn something new.</p>
+  <div class="hero-kicker">✦ Wikipedia-powered learning</div>
+  <h1>Learn smarter.<br>Quiz yourself.</h1>
+  <p>Turn knowledge into a challenge. Explore topics, test your understanding, and discover something new with WikiQuiz AI.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -221,7 +233,7 @@ if not articles:
 
 
 # ----------------------------- QUIZ SETUP -----------------------------
-st.markdown('<div class="panel"><div class="small-label">Build your quiz</div>', unsafe_allow_html=True)
+st.markdown('<div class="panel"><div class="small-label">✦ QUIZ STUDIO</div><h3 style="margin:.35rem 0 1rem;color:#20264a;">Create your learning challenge</h3>', unsafe_allow_html=True)
 left, middle, right = st.columns([1.5, 1, 1])
 with left:
     mode = st.selectbox(
@@ -312,10 +324,10 @@ if generate:
 quiz = st.session_state.get("quiz")
 if not quiz:
     st.markdown("""
-    <div class="panel" style="text-align:center;padding:2.3rem 1.5rem;">
-      <div style="font-size:2.4rem;">🎯</div>
-      <h3 style="margin:.5rem 0;">Your next challenge starts here</h3>
-      <p style="color:#68758a;">Choose a mode, enter a topic, and generate your quiz.</p>
+    <div class="panel" style="text-align:center;padding:3rem 1.5rem;">
+      <div style="display:inline-flex;width:66px;height:66px;align-items:center;justify-content:center;border-radius:20px;background:#eeedff;font-size:2rem;">🎯</div>
+      <h3 style="margin:1rem 0 .35rem;color:#252957;">Ready when you are</h3>
+      <p style="color:#71809b;margin:0;">Choose a quiz mode above, set your difficulty, and create your first challenge.</p>
     </div>
     """, unsafe_allow_html=True)
     st.stop()
@@ -357,7 +369,7 @@ else:
     saved = st.session_state.answers
     score = sum(saved.get(i) == question["answer"] for i, question in enumerate(quiz))
     percentage = round(score / len(quiz) * 100)
-    st.markdown("### Your result")
+    st.markdown('<div class="small-label">QUIZ COMPLETE</div><h2 style="font-family:Space Grotesk,sans-serif;color:#252957;margin:.2rem 0 1rem;">Your performance</h2>', unsafe_allow_html=True)
     a, b, c = st.columns(3)
     a.metric("Score", f"{score}/{len(quiz)}")
     b.metric("Accuracy", f"{percentage}%")
