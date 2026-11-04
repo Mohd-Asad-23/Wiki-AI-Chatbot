@@ -1,145 +1,131 @@
-"""
-Wikipedia Quiz Generator - Open Source Day Project Challenge.
-Data: Wikimedia Structured Wikipedia Dataset (Kaggle) only.
+import json
+import os
+import random
 
-Run:  streamlit run app.py
-"""
-
-import pandas as pd
 import streamlit as st
 
-from quiz_engine import (
-    QUESTION_KINDS,
-    generate_quiz,
-    load_articles,
-    load_articles_from_bytes,
+st.set_page_config(
+    page_title="WikiQuiz AI",
+    page_icon="🧠",
+    layout="centered",
 )
 
-st.set_page_config(page_title="Wikipedia Quiz Generator", page_icon="❓", layout="centered")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(BASE_DIR, "quiz_data.json")
 
+st.title("🧠 WikiQuiz AI")
+st.subheader("Learn. Think. Challenge Yourself.")
+st.write("Test your knowledge with questions based on Wikipedia article summaries.")
 
-@st.cache_data(show_spinner="Loading articles…")
-def cached_load_path(path, limit, keyword):
-    return load_articles(path, limit, keyword)
+@st.cache_data
+def load_questions():
+    with open(DATA_FILE, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    if not isinstance(data, list):
+        raise ValueError("quiz_data.json must contain a list of questions.")
+    return data
 
+try:
+    all_questions = load_questions()
+except FileNotFoundError:
+    st.error("quiz_data.json is missing. Add it to the same GitHub folder as app.py.")
+    st.stop()
+except (json.JSONDecodeError, ValueError) as error:
+    st.error(f"Could not read quiz_data.json: {error}")
+    st.stop()
 
-@st.cache_data(show_spinner="Loading articles…")
-def cached_load_bytes(data, limit, keyword):
-    return load_articles_from_bytes(data, limit, keyword)
+if not all_questions:
+    st.error("No questions were found in quiz_data.json.")
+    st.stop()
 
-
-def reset_quiz():
-    for key in ("quiz", "idx", "results", "checked"):
-        st.session_state.pop(key, None)
-
-
-# ---------------------------------------------------------------- sidebar
 with st.sidebar:
-    st.header("Setup")
-    st.caption("Use the Wikimedia Structured Wikipedia dataset from Kaggle (.json / .jsonl).")
-    path = st.text_input("Path to dataset file", placeholder="e.g. data/enwiki_sample.jsonl")
-    upload = st.file_uploader("…or upload a file", type=["json", "jsonl", "ndjson"])
-    keyword = st.text_input("Topic filter (optional)", placeholder="e.g. river, physics, India")
-    limit = st.slider("Articles to load", 200, 10000, 2000, step=200)
-    kinds = st.multiselect(
-        "Question types",
-        options=list(QUESTION_KINDS),
-        default=list(QUESTION_KINDS),
-        format_func=QUESTION_KINDS.get,
-    )
-    n_questions = st.slider("Questions per quiz", 5, 20, 10)
-    start = st.button("Start new quiz", type="primary", use_container_width=True)
+    st.header("Quiz setup")
+    difficulty = st.selectbox("Choose difficulty", ["All", "Easy", "Medium", "Hard"])
+    filtered_questions = [
+        question for question in all_questions
+        if difficulty == "All" or question.get("difficulty", "").title() == difficulty
+    ]
+    st.caption(f"{len(filtered_questions)} questions available")
 
-st.title("❓ Wikipedia Quiz Generator")
-st.caption("Trivia built from the Wikimedia Structured Wikipedia dataset.")
+    if filtered_questions:
+        question_count = st.slider(
+            "Number of questions",
+            min_value=1,
+            max_value=len(filtered_questions),
+            value=min(5, len(filtered_questions)),
+        )
+    else:
+        question_count = 0
 
-# ---------------------------------------------------------------- start a quiz
-if start:
-    reset_quiz()
-    try:
-        if upload is not None:
-            articles = cached_load_bytes(upload.getvalue(), limit, keyword)
-        elif path.strip():
-            articles = cached_load_path(path.strip(), limit, keyword)
-        else:
-            st.warning("Give a file path or upload a dataset file first.")
-            st.stop()
-        if not kinds:
-            st.warning("Pick at least one question type.")
-            st.stop()
-        quiz = generate_quiz(articles, n_questions, kinds)
-        if not quiz:
-            st.error("Could not build questions from this data. Try loading more articles.")
-            st.stop()
-        st.session_state.update(quiz=quiz, idx=0, results=[], checked=False)
-    except FileNotFoundError:
-        st.error("File not found. Check the path.")
-        st.stop()
-    except ValueError as e:
-        st.error(str(e) + " Try a larger limit or a broader topic filter.")
-        st.stop()
+if not filtered_questions:
+    st.warning("There are no questions for this difficulty. Please choose another one.")
+    st.stop()
 
-quiz = st.session_state.get("quiz")
+if st.button("Start a new quiz", type="primary", use_container_width=True):
+    st.session_state.quiz_questions = random.sample(filtered_questions, question_count)
+    st.session_state.quiz_submitted = False
+    st.session_state.quiz_answers = {}
+
+quiz = st.session_state.get("quiz_questions")
+
 if not quiz:
-    st.info("Choose a dataset file in the sidebar and press **Start new quiz**.")
+    st.info("Choose your difficulty and click **Start a new quiz**.")
     st.stop()
 
-idx, results = st.session_state.idx, st.session_state.results
+st.progress(0 if not st.session_state.get("quiz_submitted", False) else 1)
+st.caption(f"{len(quiz)} questions · {difficulty} difficulty")
 
-# ---------------------------------------------------------------- results screen
-if idx >= len(quiz):
-    score = sum(r["correct"] for r in results)
-    st.subheader(f"Final score: {score} / {len(quiz)}")
-    st.progress(score / len(quiz))
-    df = pd.DataFrame(results)
-    df["type"] = df["kind"].map(QUESTION_KINDS)
-    by_type = df.groupby("type")["correct"].mean().mul(100).round(0)
-    st.markdown("**Accuracy by question type (%)**")
-    st.bar_chart(by_type)
-    wrong = [r for r in results if not r["correct"]]
-    if wrong:
-        st.markdown("**Review your mistakes**")
-        for r in wrong:
-            with st.expander(r["prompt"].splitlines()[0] + " …"):
-                st.write(r["prompt"])
-                st.write(f"Your answer: **{r['chosen']}**  |  Correct: **{r['answer']}**")
-                st.caption(r["explanation"])
-                if r["source_url"]:
-                    st.link_button("Open article", r["source_url"])
-    else:
-        st.success("Perfect score!")
+with st.form("wiki_quiz_form"):
+    answers = {}
+    for index, question in enumerate(quiz):
+        st.markdown(f"### Question {index + 1}")
+        st.write(question.get("question", "Question text unavailable"))
+        options = question.get("options", [])
+        answers[index] = st.radio(
+            "Select one answer",
+            options,
+            index=None,
+            key=f"wiki_answer_{index}",
+        )
+        st.divider()
+
+    submitted = st.form_submit_button("Submit answers", type="primary")
+
+if submitted:
+    st.session_state.quiz_submitted = True
+    st.session_state.quiz_answers = answers
+
+if st.session_state.get("quiz_submitted", False):
+    saved_answers = st.session_state.quiz_answers
+    score = sum(
+        saved_answers.get(index) == question.get("answer")
+        for index, question in enumerate(quiz)
+    )
+    percentage = round(score / len(quiz) * 100)
+    st.success("Quiz completed!")
+    col1, col2 = st.columns(2)
+    col1.metric("Your score", f"{score}/{len(quiz)}")
+    col2.metric("Percentage", f"{percentage}%")
+    st.progress(percentage / 100)
+
+    st.markdown("### Answer review")
+    for index, question in enumerate(quiz):
+        correct_answer = question.get("answer")
+        chosen_answer = saved_answers.get(index)
+        if chosen_answer == correct_answer:
+            st.success(f"Question {index + 1}: Correct")
+        else:
+            st.error(f"Question {index + 1}: Incorrect")
+            st.write(f"Your answer: {chosen_answer or 'Not answered'}")
+            st.write(f"Correct answer: {correct_answer}")
+
+    if score == len(quiz):
+        st.balloons()
+        st.success("Perfect score! Well done.")
+
     if st.button("Play again"):
-        reset_quiz()
-        st.rerun()
-    st.stop()
-
-# ---------------------------------------------------------------- question screen
-q = quiz[idx]
-st.progress(idx / len(quiz))
-st.markdown(f"**Question {idx + 1} of {len(quiz)}** · {QUESTION_KINDS[q['kind']]}")
-st.write(q["prompt"])
-choice = st.radio("Your answer", q["options"], index=None, key=f"q{idx}",
-                  disabled=st.session_state.checked)
-
-if not st.session_state.checked:
-    if st.button("Check answer", disabled=choice is None):
-        correct = choice == q["answer"]
-        results.append({**q, "chosen": choice, "correct": correct})
-        st.session_state.checked = True
-        st.rerun()
-else:
-    last = results[-1]
-    if last["correct"]:
-        st.success("Correct!")
-    else:
-        st.error(f"Not quite. The answer is: {q['answer']}")
-    st.caption(q["explanation"])
-    if q["source_url"]:
-        st.link_button("Read the article", q["source_url"])
-    label = "Finish" if idx + 1 == len(quiz) else "Next question"
-    if st.button(label, type="primary"):
-        st.session_state.idx += 1
-        st.session_state.checked = False
+        for key in ("quiz_questions", "quiz_submitted", "quiz_answers"):
+            st.session_state.pop(key, None)
         st.rerun()
 
-st.caption(f"Score so far: {sum(r['correct'] for r in results)} / {len(results)}")
+st.caption("Questions are generated from the Wikimedia Structured Contents dataset.")
