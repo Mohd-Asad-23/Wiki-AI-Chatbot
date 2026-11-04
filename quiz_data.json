@@ -1,0 +1,112 @@
+[
+    {
+        "question": "Which Wikipedia topic is described below?\nLagoa da Conceição is a district located next to a large lagoon of the same name near the center of Florianópolis, capital city of the state of Santa Catarina, located in the south of Brazil. Lagoa da Conceição combines beaches, dunes, hills, and the biggest lagoon on the island. The area has a small town center with a medical clinic, post office, ",
+        "options": [
+            "Jordi Quintillà",
+            "Radio Expeditions",
+            "Lagoa da Conceição",
+            "David Lindsay (novelist)"
+        ],
+        "answer": "Lagoa da Conceição",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nYolandita En Vivo is the second live album by Puerto Rican singer Yolandita Monge. It was recorded live at Centro de Bellas Artes, Puerto Rico, on September 17–19, 1999, but released in 2000. This partial concert album contains several medleys of her early hits, a cover of Glenn Monroig's gay anthem \"Me Dijeron\"' and a duet with her daughter Paola ",
+        "options": [
+            "Run Cold",
+            "Cutoff voltage",
+            "Yolandita En Vivo",
+            "Robert Daniels"
+        ],
+        "answer": "Yolandita En Vivo",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nRavinder Singh Sangwan is an Indian Greco-Roman wrestler. Singh has won 15 national championships and gold medals in the 2005, 2007, 2009 and 2011 Commonwealth Wrestling Championships. At the 2010 Commonwealth Games, he won a gold in the Men's Greco-Roman 60 kg wrestling category. At the 2010 Asian Games he won a bronze medal in the same category. ",
+        "options": [
+            "Interior algebra",
+            "Ravinder Singh (wrestler)",
+            "End of Love (song)",
+            "John Pipkin"
+        ],
+        "answer": "Ravinder Singh (wrestler)",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nJesus Fuertes was a Cubist painter, who was initiated into the world of art by Salvador Dalí, and was described as a \"true genius\" by Pablo Picasso. Fuertes often chose women and cats as his subject matter. Several of his well-known works involve the use of shades of blue, which earned him the nickname \"Painter of Blue\". His paintings hang in such ",
+        "options": [
+            "Page County",
+            "Lenice Oliveira",
+            "Jesus Fuertes",
+            "Hydroxymethylglutaryl-CoA hydrolase"
+        ],
+        "answer": "Jesus Fuertes",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nBibile is a Sinhalese given name and a surname. Notable people with the name include:",
+        "options": [
+            "Bibile (name)",
+            "Sea Studios Foundation",
+            "Fenton R. McCreery",
+            "Mischief Makers (disambiguation)"
+        ],
+        "answer": "Bibile (name)",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nGerlinde Huber-Rebenich is a German philologist. She specializes in medieval and neo-Latin literature, and the medieval reception of Ovid.",
+        "options": [
+            "List of football clubs in Bonaire",
+            "Kungak",
+            "Joseph Fagan",
+            "Gerlinde Huber-Rebenich"
+        ],
+        "answer": "Gerlinde Huber-Rebenich",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nVolevčice is a municipality and village in Most District in the Ústí nad Labem Region of the Czech Republic. It has about 100 inhabitants. Volevčice lies approximately 10 kilometres (6 mi) south-east of Most, 36 km (22 mi) south-west of Ústí nad Labem, and 65 km (40 mi) north-west of Prague.",
+        "options": [
+            "30 cm Bubble Chamber (CERN)",
+            "Wallum froglet",
+            "Volevčice (Most District)",
+            "Leonid Gubanov"
+        ],
+        "answer": "Volevčice (Most District)",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\n\"Why I Am\" is a song by Dave Matthews Band from their album Big Whiskey & the GrooGrux King Why I Am and Why I Am Not may refer to:",
+        "options": [
+            "Shogun Finance Ltd v Hudson",
+            "Robert McKim",
+            "Why I Am",
+            "Globidrillia hemphillii"
+        ],
+        "answer": "Why I Am",
+        "difficulty": "Easy"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nThe New Zealand Cross may refer to one of two medals, both issued by the government of New Zealand:\n  - New Zealand Cross (1869), first New Zealand Cross instituted in 1869 to recognise gallantry during the New Zealand Wars of 1860 to 1872 – provided recognition to members of the local volunteer forces who were not eligible for the Victoria Cross\n ",
+        "options": [
+            "Timeline of LGBTQ Mormon history in the 1950s",
+            "Photohydrogen",
+            "New Zealand Cross",
+            "Michael McCaffrey (cricketer)"
+        ],
+        "answer": "New Zealand Cross",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "Which Wikipedia topic is described below?\nTurres Concordiae is a titular see of the Roman Catholic Church, North Africa. The ancient bishopric was founded in the Roman province of Numidia, Roman North Africa. The exact location of its seat and cathedra, though is not known. However, its name indicates its cathedra was founded in proximity to a fort and it is possible that this town was loc",
+        "options": [
+            "Turres Concordiae",
+            "Culminating project",
+            "Tuivasa",
+            "François Pallu"
+        ],
+        "answer": "Turres Concordiae",
+        "difficulty": "Medium"
+    }
+]
